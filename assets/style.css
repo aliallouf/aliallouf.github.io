@@ -1,9 +1,7 @@
-@font-face { font-family: "Overpass"; font-weight: 400; font-display: swap; src: url("fonts/overpass-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family: "Overpass"; font-weight: 700; font-display: swap; src: url("fonts/overpass-latin-700-normal.woff2") format("woff2"); }
-@font-face { font-family: "Overpass"; font-weight: 800; font-display: swap; src: url("fonts/overpass-latin-800-normal.woff2") format("woff2"); }
-@font-face { font-family: "Source Serif"; font-weight: 400; font-display: swap; src: url("fonts/source-serif-4-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family: "Source Serif"; font-weight: 600; font-display: swap; src: url("fonts/source-serif-4-latin-600-normal.woff2") format("woff2"); }
-
+@font-face { font-family: "Jakarta"; font-weight: 400; font-display: swap; src: url("fonts/plus-jakarta-sans-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Jakarta"; font-weight: 500; font-display: swap; src: url("fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Jakarta"; font-weight: 700; font-display: swap; src: url("fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Jakarta"; font-weight: 800; font-display: swap; src: url("fonts/plus-jakarta-sans-latin-800-normal.woff2") format("woff2"); }
 :root {
   --ground: #eef1f2;
   --ink: #18242d;
@@ -20,15 +18,15 @@ body {
   margin: 0;
   background: var(--ground);
   color: var(--ink);
-  font: 400 1.125rem/1.65 "Source Serif", Georgia, serif;
+  font: 400 1.0625rem/1.7 "Jakarta", system-ui, sans-serif;
 }
 .wrap { width: min(100% - 2.5rem, 960px); margin-inline: auto; }
 a { color: var(--link); text-underline-offset: 0.2em; }
-a:focus-visible, button:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; }
 .skip { position: absolute; left: -999rem; }
 .skip:focus { left: 1rem; top: 1rem; background: #fff; padding: 0.5rem 1rem; z-index: 1; }
 
-h1, h2, h3, .top, .kind, .methods, dt, button, footer, figcaption, .links { font-family: "Overpass", system-ui, sans-serif; }
+h1, h2, h3, .top, .kind, .methods, dt, footer, .links { font-family: "Jakarta", system-ui, sans-serif; }
 
 .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; padding-block: 1.25rem; border-bottom: 1px solid var(--rule); }
 .home { font-weight: 800; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
@@ -38,28 +36,20 @@ nav a:hover { color: var(--link); text-decoration: underline; }
 
 .intro { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 3rem; align-items: center; padding-block: clamp(3rem, 8vw, 5.5rem) 2.5rem; }
 .photo { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; }
-.button { display: inline-block; margin-top: 0.5rem; padding: 0.6rem 1.4rem; background: var(--ink); color: #fff; border-radius: 4px; font: 700 1rem "Overpass", system-ui, sans-serif; text-decoration: none; }
+.button { display: inline-block; margin-top: 0.5rem; padding: 0.6rem 1.4rem; background: var(--ink); color: #fff; border-radius: 4px; font: 700 1rem "Jakarta", system-ui, sans-serif; text-decoration: none; }
 .button:hover { background: var(--link); }
-h1 { margin: 0 0 1.5rem; max-width: 19ch; font-weight: 800; font-size: clamp(2.2rem, 5.8vw, 3.9rem); line-height: 1.08; letter-spacing: -0.015em; text-wrap: balance; }
+h1 { margin: 0 0 1.5rem; max-width: 19ch; font-weight: 800; font-size: clamp(2.1rem, 5.2vw, 3.4rem); line-height: 1.14; letter-spacing: -0.012em; text-wrap: balance; }
 .intro p { max-width: 62ch; margin: 0 0 1rem; }
-.intro .status { border-left: 6px solid var(--marking); padding-left: 1rem; font-weight: 600; }
+.intro .status { border-left: 6px solid var(--marking); padding-left: 1rem; font-weight: 700; }
 
-.loop { margin-block: 0 5rem; }
-.loop svg { display: block; width: 100%; height: auto; }
-.road { fill: var(--asphalt); }
-.lane { stroke: #fff; stroke-width: 3; stroke-dasharray: 34 22; opacity: 0.7; }
-.cut { fill: none; stroke: var(--marking); stroke-width: 3; }
-.car-body { fill: #dbe7ee; fill-opacity: 0.82; stroke: #fff; stroke-width: 2; }
-.car-glass { fill: var(--asphalt); fill-opacity: 0.65; }
-.axis { stroke: var(--rule); stroke-width: 1.5; stroke-dasharray: 3 5; }
-.trace-ghost { fill: none; stroke: var(--rule); stroke-width: 2; }
-.trace { fill: none; stroke: var(--link); stroke-width: 4; stroke-linejoin: round; }
-.probe { fill: var(--marking); stroke: var(--ink); stroke-width: 2; }
-.loop text { fill: var(--muted); font: 400 17px "Overpass", system-ui, sans-serif; }
-figcaption { display: flex; gap: 1.5rem; justify-content: space-between; align-items: start; margin-top: 0.75rem; color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
-figcaption span { max-width: 66ch; }
-button { font-size: 0.95rem; font-weight: 700; padding: 0.35rem 1rem; background: transparent; color: var(--ink); border: 2px solid var(--ink); border-radius: 4px; cursor: pointer; }
-button:hover { background: var(--ink); color: #fff; }
+.tech { margin-bottom: 4rem; background: #fff; border-radius: 12px; padding: 2.25rem 2rem; }
+.tech ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.25rem 2rem; }
+.tech svg { width: 48px; height: 48px; fill: none; stroke: var(--link); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.tech h3 { margin-top: 0.75rem; font-size: 1.05rem; }
+.tech p { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+.points { margin: 0.75rem 0 0; padding-left: 1.2rem; }
+.points li { margin-bottom: 0.5rem; }
+.points li::marker { color: var(--link); }
 
 .block { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; padding-block: 3rem; border-top: 1px solid var(--rule); scroll-margin-top: 1rem; }
 h2 { margin: 0; font-size: 1.6rem; font-weight: 800; line-height: 1.2; }
@@ -85,10 +75,12 @@ footer { padding-block: 2rem 3rem; border-top: 1px solid var(--rule); color: var
   .intro { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   .photo { order: -1; width: min(220px, 70%); }
   .block { grid-template-columns: 1fr; gap: 1.25rem; padding-block: 2.5rem; }
-  figcaption { flex-direction: column; gap: 0.75rem; }
-  .loop text { font-size: 30px; }
+  .tech { padding: 1.75rem 1.25rem; }
+  .tech ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1.25rem; }
+}
+@media (max-width: 460px) {
+  .tech ul { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  #replay { display: none; }
 }

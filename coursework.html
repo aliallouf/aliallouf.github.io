@@ -4,11 +4,98 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Coursework: Ali Allouf</title>
-  <meta name="description" content="Coursework and technical knowledge of Ali Allouf">
+  <meta name="description" content="Courses, protocols and topics studied by Ali Allouf in telecommunication engineering and data science.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css?v=2">
+  <style>
+    /* Styles used only on this page */
+    .page-head { padding-block: 3.5rem 2.5rem; }
+    .page-head p { max-width: 60ch; margin: 0 0 1rem; }
+    .block { grid-template-columns: 220px minmax(0, 1fr); scroll-margin-top: 0; }
+    .block > header .kind { margin: 0.4rem 0 0; color: var(--muted); font-size: 1rem; }
+    .block > .body { min-width: 0; }
+    .toggle, .presets button { padding: 0.5rem 1rem; background: #fff; color: var(--ink); border: 1px solid var(--ink); border-radius: 4px; font: 700 0.95rem "Jakarta", system-ui, sans-serif; cursor: pointer; }
+    .toggle:hover, .presets button:hover { background: var(--ink); color: #fff; }
+    button:focus-visible, summary:focus-visible, input:focus-visible, .scroll:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; }
+
+    .course { border-bottom: 1px solid var(--rule); scroll-margin-top: 1rem; }
+    .course:first-of-type { border-top: 1px solid var(--rule); }
+    summary { position: relative; display: block; padding: 1.1rem 3.25rem 1.1rem 0; cursor: pointer; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 0; top: 1.1rem; width: 2rem; height: 2rem; display: grid; place-items: center; background: #fff; border-radius: 50%; font-weight: 700; font-size: 1.3rem; line-height: 1; color: var(--link); }
+    details[open] > summary::after { content: "\2212"; background: var(--marking); color: var(--ink); }
+    summary:hover h3 { color: var(--link); }
+    .what { display: block; margin-top: 0.3rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+    .topics { margin: 0.5rem 0 0; }
+    .topics dd p { margin: 0.4rem 0 0; }
+    .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.35rem 0 0; padding: 0; }
+    .tags li { padding: 0 0.6rem; background: #fff; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.92rem; }
+    .related { margin: 1rem 0 0; }
+    .course > :last-child { margin-bottom: 1.75rem; }
+    .also { margin: 1.5rem 0 0; }
+
+    figure { margin: 1.5rem 0 0; padding: 1.25rem; background: #fff; border-radius: 12px; }
+    figcaption { margin-top: 0.9rem; color: var(--muted); font-size: 0.93rem; line-height: 1.6; }
+    h4 { margin: 0 0 0.75rem; font-size: 1.05rem; }
+    .d { display: block; width: 100%; max-width: 440px; height: auto; margin-inline: auto; }
+    .d text { fill: var(--ink); font: 500 13px "Jakarta", system-ui, sans-serif; text-anchor: middle; }
+    .d text.sub { fill: var(--muted); font-size: 12px; }
+    .d text.strong { font-weight: 800; }
+    .d text.mark { font-weight: 700; }
+    .d text.mark, .d text.halo { paint-order: stroke; stroke: #fff; stroke-width: 4px; stroke-linejoin: round; }
+    .d text.start { text-anchor: start; }
+    .d text.end { text-anchor: end; }
+    .d .box { fill: #fff; stroke: var(--ink); stroke-width: 1.5; }
+    .d .box.hl { fill: #fde7a6; }
+    .d .box.soft { stroke: var(--rule); }
+    .d .box.hl + text + text.sub { fill: var(--ink); }
+    .d .ln { fill: none; stroke: var(--link); stroke-width: 1.8; }
+    .d .dash { stroke-dasharray: 5 4; }
+    .d .thick { stroke-width: 4; }
+    .d .life { stroke: var(--rule); stroke-width: 1.5; }
+    .d .head { fill: var(--link); }
+    .d .node { fill: #fff; stroke: var(--ink); stroke-width: 1.8; }
+    .d .node.hl { fill: var(--marking); }
+    .d .wait { fill: var(--marking); }
+    .d .grid { stroke: #e2e7ea; stroke-width: 1; fill: none; }
+    .d .curve { fill: none; stroke: var(--link); stroke-width: 2.2; stroke-linejoin: round; }
+    .d .pt { fill: var(--link); stroke: #fff; stroke-width: 2; }
+    .d .cross { stroke: var(--muted); stroke-width: 1; }
+    .d .polar { fill: none; stroke: #dde3e7; stroke-width: 1; }
+    .d .beam { fill: rgba(10, 90, 134, 0.14); stroke: var(--link); stroke-width: 2; stroke-linejoin: round; }
+
+    .readout { min-height: 1.6em; margin: 0.75rem 0 0; font-size: 0.97rem; text-align: center; }
+    figure label { display: block; font-weight: 700; font-size: 0.97rem; }
+    figure input[type="text"] { width: 100%; margin-top: 0.35rem; padding: 0.55rem 0.7rem; border: 1px solid var(--muted); border-radius: 4px; font: 500 1rem "Jakarta", system-ui, sans-serif; color: var(--ink); }
+    figure input[type="range"] { width: 100%; margin: 0 0 0.6rem; accent-color: var(--link); }
+    figure output { font-weight: 400; color: var(--muted); margin-left: 0.4rem; }
+    .presets { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.25rem 0 1rem; }
+    .scroll { overflow-x: auto; margin-top: 0.75rem; }
+    .scroll svg { display: block; margin-inline: auto; }
+    #huff-table table { margin-inline: auto; border-collapse: collapse; font-size: 0.93rem; font-variant-numeric: tabular-nums; }
+    #huff-table th, #huff-table td { padding: 0.15rem 0.9rem; text-align: left; border-bottom: 1px solid var(--rule); }
+
+    @media (max-width: 720px) {
+      .block { grid-template-columns: minmax(0, 1fr); }
+      figure { padding: 1rem 0.75rem; }
+    }
+  </style>
 </head>
 <body>
+  <!--
+    HOW TO EDIT THIS PAGE
+    1. Each course sits between "COURSE START" and "COURSE END" comments.
+    2. To change a topic, edit the words inside <dt>...</dt> and <dd>...</dd>.
+    3. To add a course, paste this block inside the right section and change the words and the id:
+
+       <details class="course" id="my-course">
+         <summary><h3>Course name</h3><span class="what">One sentence about it.</span></summary>
+         <dl class="topics">
+           <div><dt>Topic group</dt><dd>Topics.</dd></div>
+           <div><dt>Protocols</dt><dd><ul class="tags"><li>Name</li><li>Name</li></ul></dd></div>
+         </dl>
+       </details>
+  -->
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="top wrap">
@@ -24,13 +111,573 @@
   </header>
 
   <main id="main">
-    <section class="wrap" style="padding-block: 3.5rem 4rem">
+    <div class="page-head wrap">
       <h1>Coursework and technical knowledge</h1>
-      <p>This page is in progress.</p>
-      <p><a class="button" href="index.html#background">Back to my portfolio</a></p>
+      <p>What I studied, course by course. Open a course to see its topics, protocols and a diagram.</p>
+      <p><button type="button" class="toggle" id="toggle-all" hidden>Open all courses</button></p>
+    </div>
+
+    <section class="block wrap" id="tsp">
+      <header>
+        <h2>Télécom SudParis</h2>
+        <p class="kind">MSc, 2025 – 2026</p>
+      </header>
+      <div class="body">
+        <p>Courses include Wireless Access Networks, Network Intelligence and Communication Services, and Data Science.</p>
+      </div>
     </section>
+
+    <section class="block wrap" id="calabria">
+      <header>
+        <h2>University of Calabria</h2>
+        <p class="kind">MSc, 2024 – 2026</p>
+      </header>
+      <div class="body">
+        <!-- ===== COURSE START: WIRELESS DEVICES AND NETWORKS ===== -->
+        <details class="course" id="wireless-devices">
+          <summary><h3>Wireless Devices and Networks</h3><span class="what">From the radio channel to short-range and vehicle networks: how wireless devices share the air.</span></summary>
+          <dl class="topics">
+            <div><dt>Radio foundations</dt><dd>Path loss, multipath, shadowing and the Okumura–Hata model; FDMA, TDMA, CDMA and OFDMA.</dd></div>
+            <div><dt>Wi-Fi</dt><dd>DSSS and OFDM physical layers, CSMA/CA, RTS/CTS, and the DCF and PCF access functions.</dd></div>
+            <div><dt>Wi-Fi quality of service and security</dt><dd>IEEE 802.11e (EDCA and HCCA), the weaknesses of WEP, then WPA, WPA2 and 802.1X.</dd></div>
+            <div><dt>Bluetooth</dt><dd>Classic, Low Energy and Mesh; frequency hopping, piconets, scatternets and power modes.</dd></div>
+            <div><dt>RFID</dt><dd>Passive and active tags, anti-collision methods and EPCglobal.</dd></div>
+            <div><dt>Mesh and ad hoc networks</dt><dd>IEEE 802.11s, the ETX and WCETT routing metrics, and location-aided routing. Related: <a href="#network-design">ad hoc routing protocols</a> and <a href="#iot-networking">ZigBee</a>.</dd></div>
+            <div><dt>Vehicle communication</dt><dd>V2X with IEEE 802.11p, 802.11bd and Cellular-V2X.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 262" role="img" aria-label="RTS and CTS exchange. Station C hears the access point reply and waits while station A sends.">
+              <defs><marker id="a-rts" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <rect class="box" x="4" y="6" width="92" height="30" rx="5"/><text x="50" y="25.5">Station A</text>
+              <path class="life" d="M50 36L50 256"/>
+              <rect class="box" x="134" y="6" width="92" height="30" rx="5"/><text x="180" y="25.5">Access point</text>
+              <path class="life" d="M180 36L180 256"/>
+              <rect class="box" x="264" y="6" width="92" height="30" rx="5"/><text x="310" y="25.5">Station C</text>
+              <path class="life" d="M310 36L310 256"/>
+              <rect class="wait" x="301" y="104" width="18" height="136" rx="4"/>
+              <path class="ln" d="M50 66L180 66" marker-end="url(#a-rts)"/>
+              <text x="115" y="59">1. RTS</text>
+              <path class="ln" d="M180 102L50 102" marker-end="url(#a-rts)"/>
+              <path class="ln" d="M180 102L300 102" marker-end="url(#a-rts)"/>
+              <text x="115" y="95">2. CTS</text>
+              <text x="240" y="95">CTS heard</text>
+              <path class="ln thick" d="M50 160L180 160" marker-end="url(#a-rts)"/>
+              <text x="115" y="153">3. Data</text>
+              <path class="ln" d="M180 218L50 218" marker-end="url(#a-rts)"/>
+              <text x="115" y="211">4. ACK</text>
+              <text class="end mark" x="292" y="176">C waits</text>
+            </svg>
+            <figcaption>The hidden terminal problem: stations A and C cannot hear each other. The access point’s CTS tells C to wait.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: WIRELESS DEVICES AND NETWORKS ===== -->
+
+        <!-- ===== COURSE START: NETWORKING ASPECTS OF INTERNET OF THINGS ===== -->
+        <details class="course" id="iot-networking">
+          <summary><h3>Networking Aspects of Internet of Things</h3><span class="what">How small devices communicate, from low-power radio links to application protocols.</span></summary>
+          <dl class="topics">
+            <div><dt>Short range</dt><dd>IEEE 802.15.4 (CSMA/CA, reliability, parameter tuning), time-slotted channel hopping in 802.15.4e, and ZigBee. Related: <a href="#wireless-devices">Bluetooth</a>.</dd></div>
+            <div><dt>Long range</dt><dd>LoRa chirp spread spectrum; LoRaWAN architecture, device classes, activation and security.</dd></div>
+            <div><dt>IPv6 for small devices</dt><dd>6LoWPAN header compression and fragmentation.</dd></div>
+            <div><dt>Application layer</dt><dd>CoAP messages, reliability, requests and responses.</dd></div>
+            <div><dt>Sensor network transport</dt><dd><ul class="tags"><li>RMST</li><li>PSFQ</li><li>ESRT</li></ul></dd></div>
+            <div><dt>Routing and medium access</dt><dd>Covered with <a href="#sensor-networks">Wireless Sensor Networks</a>.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 262" role="img" aria-label="Protocol stacks. Short range: CoAP, UDP, IPv6 with 6LoWPAN, then IEEE 802.15.4. Long range: application, LoRaWAN, then LoRa.">
+              <defs><marker id="a-st" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <text class="strong" x="90" y="18">Short range</text>
+              <text class="strong" x="270" y="18">Long range</text>
+              <rect class="box" x="10" y="30" width="160" height="38" rx="5"/><text x="90" y="53.5">CoAP</text>
+              <rect class="box" x="10" y="74" width="160" height="38" rx="5"/><text x="90" y="97.5">UDP</text>
+              <rect class="box hl" x="10" y="118" width="160" height="38" rx="5"/><text x="90" y="141.5">IPv6 + 6LoWPAN</text>
+              <rect class="box" x="10" y="162" width="160" height="38" rx="5"/><text x="90" y="185.5">802.15.4 MAC</text>
+              <rect class="box" x="10" y="206" width="160" height="38" rx="5"/><text x="90" y="229.5">802.15.4 radio</text>
+              <rect class="box" x="190" y="118" width="160" height="38" rx="5"/><text x="270" y="141.5">Application data</text>
+              <rect class="box hl" x="190" y="162" width="160" height="38" rx="5"/><text x="270" y="185.5">LoRaWAN</text>
+              <rect class="box" x="190" y="206" width="160" height="38" rx="5"/><text x="270" y="229.5">LoRa radio</text>
+            </svg>
+            <figcaption>Two ways to connect a small device: IPv6 over short-range radio, or LoRaWAN over long-range radio.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: NETWORKING ASPECTS OF INTERNET OF THINGS ===== -->
+
+        <!-- ===== COURSE START: DISTRIBUTED SYSTEMS AND CLOUD/EDGE COMPUTING ===== -->
+        <details class="course" id="cloud-edge">
+          <summary><h3>Distributed Systems and Cloud/Edge Computing</h3><span class="what">Where computation should happen: from the central cloud to the network edge.</span></summary>
+          <dl class="topics">
+            <div><dt>Distributed systems and IoT</dt><dd>Centralized, decentralized and distributed designs; interoperability, scalability and autonomy.</dd></div>
+            <div><dt>IoT development</dt><dd>Methodologies, frameworks, platforms and tools, from analysis to deployment.</dd></div>
+            <div><dt>Cloud, fog and edge</dt><dd>Architectures and the trade-offs between delay, bandwidth, energy and privacy.</dd></div>
+            <div><dt>Multi-access edge computing</dt><dd>Its link with 5G, the ETSI architecture, host and system levels, and reference points.</dd></div>
+            <div><dt>Simulation</dt><dd>EdgeCloudSim: mobility, network and load models, and task orchestration.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 262" role="img" aria-label="Three layers: cloud, edge and fog, and devices. Going up adds computing and storage; staying low reduces delay.">
+              <defs><marker id="a-cl" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <rect class="box" x="60" y="12" width="240" height="56" rx="5"/><text x="180" y="36">Cloud</text><text class="sub" x="180" y="53">Large data centers</text>
+              <rect class="box hl" x="60" y="102" width="240" height="56" rx="5"/><text x="180" y="126">Edge and fog</text><text class="sub" x="180" y="143">Servers near the users</text>
+              <rect class="box" x="60" y="192" width="240" height="56" rx="5"/><text x="180" y="216">Devices</text><text class="sub" x="180" y="233">Sensors, phones, vehicles</text>
+              <path class="ln" d="M180 192L180 160" marker-end="url(#a-cl)"/>
+              <path class="ln" d="M180 102L180 70" marker-end="url(#a-cl)"/>
+              <path class="ln" d="M30 244L30 16" marker-end="url(#a-cl)"/>
+              <text transform="translate(18 130) rotate(-90)">More compute and storage</text>
+              <path class="ln" d="M330 16L330 244" marker-end="url(#a-cl)"/>
+              <text transform="translate(347 130) rotate(-90)">Lower delay</text>
+            </svg>
+            <figcaption>Processing close to the devices shortens delay. The cloud offers more capacity farther away.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: DISTRIBUTED SYSTEMS AND CLOUD/EDGE COMPUTING ===== -->
+
+        <!-- ===== COURSE START: SIMULATION AND PERFORMANCE OPTIMIZATION ===== -->
+        <details class="course" id="simulation">
+          <summary><h3>Simulation and Performance Optimization</h3><span class="what">How to model systems with random behavior, simulate them and choose the best design.</span></summary>
+          <dl class="topics">
+            <div><dt>Queueing models</dt><dd>Producer–consumer station, open and closed systems, central server model; waiting time, queue length, throughput and utilization.</dd></div>
+            <div><dt>Probability and stochastic processes</dt><dd>Joint and marginal distributions, the Erlang distribution, stationarity and Poisson arrivals.</dd></div>
+            <div><dt>Simulation studies</dt><dd>Model design, input data, verification, validation and experiment design.</dd></div>
+            <div><dt>Arena</dt><dd>Flowchart and data modules, resources, queues and reports.</dd></div>
+            <div><dt>Output analysis</dt><dd>Chi-square goodness-of-fit test; confidence intervals from independent replications and batch means.</dd></div>
+            <div><dt>Simulation-based optimization</dt><dd>Ranking and selection, and subset selection.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" id="q-chart" viewBox="0 0 360 244" role="img" aria-label="Average waiting time against server load for a single-server queue. The wait is 1 service time at 50 percent load, 4 at 80 percent and 9 at 90 percent.">
+              <path class="grid" d="M48 200H342"/><text class="end sub" x="40" y="204">0</text>
+              <path class="grid" d="M48 155H342"/><text class="end sub" x="40" y="159">5</text>
+              <path class="grid" d="M48 110H342"/><text class="end sub" x="40" y="114">10</text>
+              <path class="grid" d="M48 65H342"/><text class="end sub" x="40" y="69">15</text>
+              <path class="grid" d="M48 20H342"/><text class="end sub" x="40" y="24">20</text>
+              <text class="sub" x="48" y="218">0%</text>
+              <text class="sub" x="121.5" y="218">25%</text>
+              <text class="sub" x="195" y="218">50%</text>
+              <text class="sub" x="268.5" y="218">75%</text>
+              <text class="sub" x="342" y="218">100%</text>
+              <text class="sub" x="195" y="238">Server load</text>
+              <text class="start sub" x="8" y="10">Average wait, in service times</text>
+              <path class="curve" d="M48.0 200.0 L48.6 200.0 L49.2 200.0 L49.8 199.9 L50.4 199.9 L50.9 199.9 L51.5 199.9 L52.1 199.9 L52.7 199.9 L53.3 199.8 L53.9 199.8 L54.5 199.8 L55.1 199.8 L55.6 199.8 L56.2 199.7 L56.8 199.7 L57.4 199.7 L58.0 199.7 L58.6 199.7 L59.2 199.6 L59.8 199.6 L60.3 199.6 L60.9 199.6 L61.5 199.6 L62.1 199.5 L62.7 199.5 L63.3 199.5 L63.9 199.5 L64.5 199.5 L65.1 199.4 L65.6 199.4 L66.2 199.4 L66.8 199.4 L67.4 199.4 L68.0 199.3 L68.6 199.3 L69.2 199.3 L69.8 199.3 L70.3 199.3 L70.9 199.2 L71.5 199.2 L72.1 199.2 L72.7 199.2 L73.3 199.2 L73.9 199.1 L74.5 199.1 L75.0 199.1 L75.6 199.1 L76.2 199.0 L76.8 199.0 L77.4 199.0 L78.0 199.0 L78.6 199.0 L79.2 198.9 L79.8 198.9 L80.3 198.9 L80.9 198.9 L81.5 198.8 L82.1 198.8 L82.7 198.8 L83.3 198.8 L83.9 198.7 L84.5 198.7 L85.0 198.7 L85.6 198.7 L86.2 198.7 L86.8 198.6 L87.4 198.6 L88.0 198.6 L88.6 198.6 L89.2 198.5 L89.7 198.5 L90.3 198.5 L90.9 198.5 L91.5 198.4 L92.1 198.4 L92.7 198.4 L93.3 198.4 L93.9 198.3 L94.5 198.3 L95.0 198.3 L95.6 198.3 L96.2 198.2 L96.8 198.2 L97.4 198.2 L98.0 198.2 L98.6 198.1 L99.2 198.1 L99.7 198.1 L100.3 198.1 L100.9 198.0 L101.5 198.0 L102.1 198.0 L102.7 197.9 L103.3 197.9 L103.9 197.9 L104.4 197.9 L105.0 197.8 L105.6 197.8 L106.2 197.8 L106.8 197.8 L107.4 197.7 L108.0 197.7 L108.6 197.7 L109.2 197.6 L109.7 197.6 L110.3 197.6 L110.9 197.5 L111.5 197.5 L112.1 197.5 L112.7 197.5 L113.3 197.4 L113.9 197.4 L114.4 197.4 L115.0 197.3 L115.6 197.3 L116.2 197.3 L116.8 197.3 L117.4 197.2 L118.0 197.2 L118.6 197.2 L119.1 197.1 L119.7 197.1 L120.3 197.1 L120.9 197.0 L121.5 197.0 L122.1 197.0 L122.7 196.9 L123.3 196.9 L123.9 196.9 L124.4 196.8 L125.0 196.8 L125.6 196.8 L126.2 196.7 L126.8 196.7 L127.4 196.7 L128.0 196.6 L128.6 196.6 L129.1 196.6 L129.7 196.5 L130.3 196.5 L130.9 196.5 L131.5 196.4 L132.1 196.4 L132.7 196.4 L133.3 196.3 L133.8 196.3 L134.4 196.3 L135.0 196.2 L135.6 196.2 L136.2 196.1 L136.8 196.1 L137.4 196.1 L138.0 196.0 L138.6 196.0 L139.1 196.0 L139.7 195.9 L140.3 195.9 L140.9 195.8 L141.5 195.8 L142.1 195.8 L142.7 195.7 L143.3 195.7 L143.8 195.6 L144.4 195.6 L145.0 195.6 L145.6 195.5 L146.2 195.5 L146.8 195.4 L147.4 195.4 L148.0 195.4 L148.5 195.3 L149.1 195.3 L149.7 195.2 L150.3 195.2 L150.9 195.2 L151.5 195.1 L152.1 195.1 L152.7 195.0 L153.3 195.0 L153.8 194.9 L154.4 194.9 L155.0 194.8 L155.6 194.8 L156.2 194.8 L156.8 194.7 L157.4 194.7 L158.0 194.6 L158.5 194.6 L159.1 194.5 L159.7 194.5 L160.3 194.4 L160.9 194.4 L161.5 194.3 L162.1 194.3 L162.7 194.2 L163.2 194.2 L163.8 194.1 L164.4 194.1 L165.0 194.0 L165.6 194.0 L166.2 193.9 L166.8 193.9 L167.4 193.8 L168.0 193.8 L168.5 193.7 L169.1 193.7 L169.7 193.6 L170.3 193.6 L170.9 193.5 L171.5 193.5 L172.1 193.4 L172.7 193.4 L173.2 193.3 L173.8 193.3 L174.4 193.2 L175.0 193.2 L175.6 193.1 L176.2 193.0 L176.8 193.0 L177.4 192.9 L177.9 192.9 L178.5 192.8 L179.1 192.8 L179.7 192.7 L180.3 192.6 L180.9 192.6 L181.5 192.5 L182.1 192.5 L182.7 192.4 L183.2 192.3 L183.8 192.3 L184.4 192.2 L185.0 192.1 L185.6 192.1 L186.2 192.0 L186.8 192.0 L187.4 191.9 L187.9 191.8 L188.5 191.8 L189.1 191.7 L189.7 191.6 L190.3 191.6 L190.9 191.5 L191.5 191.4 L192.1 191.4 L192.6 191.3 L193.2 191.2 L193.8 191.1 L194.4 191.1 L195.0 191.0 L195.6 190.9 L196.2 190.9 L196.8 190.8 L197.4 190.7 L197.9 190.6 L198.5 190.6 L199.1 190.5 L199.7 190.4 L200.3 190.3 L200.9 190.2 L201.5 190.2 L202.1 190.1 L202.6 190.0 L203.2 189.9 L203.8 189.9 L204.4 189.8 L205.0 189.7 L205.6 189.6 L206.2 189.5 L206.8 189.4 L207.3 189.3 L207.9 189.3 L208.5 189.2 L209.1 189.1 L209.7 189.0 L210.3 188.9 L210.9 188.8 L211.5 188.7 L212.1 188.6 L212.6 188.5 L213.2 188.5 L213.8 188.4 L214.4 188.3 L215.0 188.2 L215.6 188.1 L216.2 188.0 L216.8 187.9 L217.3 187.8 L217.9 187.7 L218.5 187.6 L219.1 187.5 L219.7 187.4 L220.3 187.3 L220.9 187.2 L221.5 187.0 L222.0 186.9 L222.6 186.8 L223.2 186.7 L223.8 186.6 L224.4 186.5 L225.0 186.4 L225.6 186.3 L226.2 186.2 L226.8 186.0 L227.3 185.9 L227.9 185.8 L228.5 185.7 L229.1 185.6 L229.7 185.4 L230.3 185.3 L230.9 185.2 L231.5 185.1 L232.0 184.9 L232.6 184.8 L233.2 184.7 L233.8 184.5 L234.4 184.4 L235.0 184.3 L235.6 184.1 L236.2 184.0 L236.7 183.9 L237.3 183.7 L237.9 183.6 L238.5 183.4 L239.1 183.3 L239.7 183.1 L240.3 183.0 L240.9 182.8 L241.5 182.7 L242.0 182.5 L242.6 182.4 L243.2 182.2 L243.8 182.1 L244.4 181.9 L245.0 181.7 L245.6 181.6 L246.2 181.4 L246.7 181.2 L247.3 181.0 L247.9 180.9 L248.5 180.7 L249.1 180.5 L249.7 180.3 L250.3 180.2 L250.9 180.0 L251.4 179.8 L252.0 179.6 L252.6 179.4 L253.2 179.2 L253.8 179.0 L254.4 178.8 L255.0 178.6 L255.6 178.4 L256.2 178.2 L256.7 178.0 L257.3 177.8 L257.9 177.5 L258.5 177.3 L259.1 177.1 L259.7 176.9 L260.3 176.6 L260.9 176.4 L261.4 176.2 L262.0 175.9 L262.6 175.7 L263.2 175.4 L263.8 175.2 L264.4 174.9 L265.0 174.6 L265.6 174.4 L266.1 174.1 L266.7 173.8 L267.3 173.6 L267.9 173.3 L268.5 173.0 L269.1 172.7 L269.7 172.4 L270.3 172.1 L270.9 171.8 L271.4 171.5 L272.0 171.2 L272.6 170.9 L273.2 170.5 L273.8 170.2 L274.4 169.9 L275.0 169.5 L275.6 169.2 L276.1 168.8 L276.7 168.5 L277.3 168.1 L277.9 167.7 L278.5 167.3 L279.1 166.9 L279.7 166.5 L280.3 166.1 L280.8 165.7 L281.4 165.3 L282.0 164.9 L282.6 164.4 L283.2 164.0 L283.8 163.5 L284.4 163.1 L285.0 162.6 L285.6 162.1 L286.1 161.6 L286.7 161.1 L287.3 160.6 L287.9 160.1 L288.5 159.5 L289.1 159.0 L289.7 158.4 L290.3 157.9 L290.8 157.3 L291.4 156.7 L292.0 156.1 L292.6 155.4 L293.2 154.8 L293.8 154.1 L294.4 153.4 L295.0 152.8 L295.5 152.0 L296.1 151.3 L296.7 150.6 L297.3 149.8 L297.9 149.0 L298.5 148.2 L299.1 147.4 L299.7 146.5 L300.3 145.6 L300.8 144.7 L301.4 143.8 L302.0 142.8 L302.6 141.8 L303.2 140.8 L303.8 139.8 L304.4 138.7 L305.0 137.6 L305.5 136.4 L306.1 135.2 L306.7 134.0 L307.3 132.7 L307.9 131.4 L308.5 130.1 L309.1 128.6 L309.7 127.2 L310.2 125.7 L310.8 124.1 L311.4 122.5 L312.0 120.8 L312.6 119.0 L313.2 117.2 L313.8 115.2 L314.4 113.3 L315.0 111.2 L315.5 109.0 L316.1 106.7 L316.7 104.3 L317.3 101.9 L317.9 99.2 L318.5 96.5 L319.1 93.6 L319.7 90.6 L320.2 87.4 L320.8 84.0 L321.4 80.4 L322.0 76.6 L322.6 72.6 L323.2 68.4 L323.8 63.8 L324.4 59.0 L324.9 53.8 L325.5 48.3 L326.1 42.3 L326.7 35.9 L327.3 29.0 L327.9 21.5"/>
+              <circle class="pt" cx="195.0" cy="191.0" r="4.5"/><text class="end strong" x="187.0" y="185.0">1</text>
+              <circle class="pt" cx="283.2" cy="164.0" r="4.5"/><text class="end strong" x="275.2" y="158.0">4</text>
+              <circle class="pt" cx="312.6" cy="119.0" r="4.5"/><text class="end strong" x="304.6" y="113.0">9</text>
+              <g id="q-hover" visibility="hidden"><path class="cross" d="M0 20V200"/><circle class="pt" r="5"/></g>
+              <rect id="q-hit" x="48" y="20" width="294" height="180" fill="transparent"/>
+            </svg>
+            <p class="readout" id="q-out" aria-live="polite">Point at the chart to read any value.</p>
+            <figcaption>Waiting time climbs steeply as a server approaches full load. Single-server queue with random arrivals and service times (M/M/1): wait = load ÷ (1 − load).</figcaption>
+          </figure>
+          <p class="related">Related to my <a href="index.html#research">research interest in digital twins</a>.</p>
+        </details>
+        <!-- ===== COURSE END: SIMULATION AND PERFORMANCE OPTIMIZATION ===== -->
+      </div>
+    </section>
+
+    <section class="block wrap" id="latakia">
+      <header>
+        <h2>Latakia University</h2>
+        <p class="kind">BSc, 2018 – 2024</p>
+      </header>
+      <div class="body">
+        <!-- ===== COURSE START: INFORMATION THEORY AND CODING ===== -->
+        <details class="course" id="information-theory">
+          <summary><h3>Information Theory and Coding</h3><span class="what">How to measure information, how much a channel can carry, and how to compress data.</span></summary>
+          <dl class="topics">
+            <div><dt>Measuring information</dt><dd>Self-information, entropy, redundancy, information rate, conditional and joint entropy, mutual information.</dd></div>
+            <div><dt>Channels</dt><dd>Noiseless, noisy and memoryless channels, the binary symmetric channel and the noise matrix.</dd></div>
+            <div><dt>Capacity</dt><dd>The Shannon–Hartley law, the ideal system, and trading bandwidth against signal-to-noise ratio.</dd></div>
+            <div><dt>Coding</dt><dd>Source and channel coding, lossless and lossy compression, average code length and efficiency.</dd></div>
+            <div><dt>Compression algorithms</dt><dd><ul class="tags"><li>Shannon–Fano</li><li>Static Huffman</li><li>Adaptive Huffman</li><li>LZ77</li><li>LZ78</li></ul></dd></div>
+          </dl>
+          <figure>
+            <h4>Try it: build a Huffman code</h4>
+            <label for="huff-in">Type a short phrase</label>
+            <input id="huff-in" type="text" maxlength="40" value="wireless networks" autocomplete="off" spellcheck="false">
+            <p class="readout" id="huff-out" aria-live="polite">This demo needs JavaScript.</p>
+            <div class="scroll" id="huff-tree" tabindex="0" role="region" aria-label="Huffman tree"></div>
+            <div class="scroll" id="huff-table"></div>
+            <figcaption>Frequent characters get short codes. The comparison is with 7-bit ASCII and leaves out the cost of sending the code table.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: INFORMATION THEORY AND CODING ===== -->
+
+        <!-- ===== COURSE START: ANTENNAS ===== -->
+        <details class="course" id="antennas">
+          <summary><h3>Antennas</h3><span class="what">How antennas radiate, and how their shape and arrangement direct the beam.</span></summary>
+          <dl class="topics">
+            <div><dt>Foundations</dt><dd>Frequency bands, antenna types, radiation mechanism, current distribution and input impedance.</dd></div>
+            <div><dt>Parameters</dt><dd>Radiation pattern, beamwidth, radiation intensity, effective length and area, noise temperature and field regions.</dd></div>
+            <div><dt>Linear antennas</dt><dd>Short, finite-length and half-wave dipoles, monopoles and image theory, traveling-wave antennas.</dd></div>
+            <div><dt>Arrays</dt><dd>Array factor; broadside, end-fire and phased (scanning) arrays; directivity.</dd></div>
+            <div><dt>Practical designs</dt><dd>Helical antennas (normal and axial modes), Yagi–Uda and the folded dipole.</dd></div>
+          </dl>
+          <figure>
+            <h4>Try it: steer an antenna array</h4>
+            <div class="controls">
+              <label for="arr-n">Elements <output id="arr-n-v">4</output></label>
+              <input id="arr-n" type="range" min="2" max="12" step="1" value="4">
+              <label for="arr-d">Spacing <output id="arr-d-v">0.50 wavelengths</output></label>
+              <input id="arr-d" type="range" min="0.25" max="1" step="0.05" value="0.5">
+              <label for="arr-b">Phase shift <output id="arr-b-v">0°</output></label>
+              <input id="arr-b" type="range" min="-180" max="180" step="5" value="0">
+            </div>
+            <p class="presets"><button type="button" data-d="0.5" data-b="0">Broadside</button> <button type="button" data-d="0.25" data-b="-90">End-fire</button> <button type="button" data-d="0.5" data-b="-90">Steer to 60°</button></p>
+            <svg class="d" viewBox="0 0 360 340" role="img" aria-label="Polar plot of the array factor">
+              <g class="polar">
+                <circle cx="180" cy="170" r="140"/><circle cx="180" cy="170" r="105"/><circle cx="180" cy="170" r="70"/><circle cx="180" cy="170" r="35"/>
+                <path d="M40 170H320M180 30V310M81 71L279 269M279 71L81 269"/>
+              </g>
+              <path id="arr-path" class="beam" d=""/>
+              <g id="arr-dots"></g>
+              <text class="end sub" x="354" y="174">0°</text><text class="sub" x="180" y="20">90°</text><text class="start sub" x="4" y="174">180°</text>
+            </svg>
+            <p class="readout" id="arr-out" aria-live="polite">This demo needs JavaScript.</p>
+            <figcaption>Array factor of identical, equally spaced, isotropic elements with equal amplitude, on a linear scale. Angles are measured from the line of the array.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: ANTENNAS ===== -->
+
+        <!-- ===== COURSE START: ADVANCED CELLULAR SYSTEMS ===== -->
+        <details class="course" id="cellular">
+          <summary><h3>Advanced Cellular Systems</h3><span class="what">From GSM to 3G radio access and packet data, with an introduction to 5G New Radio.</span></summary>
+          <dl class="topics">
+            <div><dt>GSM and its evolution</dt><dd>Radio, switching and operation subsystems; FDMA and TDMA; GPRS and EDGE.</dd></div>
+            <div><dt>Radio access</dt><dd>FDD and TDD, CDMA, direct-sequence spread spectrum and WCDMA codes.</dd></div>
+            <div><dt>UMTS architecture and channels</dt><dd>User equipment, Node B, RNC and core network; logical, transport and physical channels.</dd></div>
+            <div><dt>Procedures</dt><dd>GPRS attach, PDP context activation, routing area update and traffic classes.</dd></div>
+            <div><dt>5G services and radio</dt><dd>Enhanced broadband, ultra-reliable low-latency and massive machine communication; spectrum, scalable OFDM, frame structure, mini-slots, bandwidth parts, massive MIMO and beamforming.</dd></div>
+            <div><dt>5G architecture</dt><dd>Standalone and non-standalone deployment, service-based core, network slicing, Cloud-RAN and virtualization.</dd></div>
+            <div><dt>Protocols</dt><dd><ul class="tags"><li>RRC</li><li>PDCP</li><li>RLC</li><li>MAC</li><li>NBAP</li><li>RANAP</li><li>GMM</li><li>SM</li><li>GTP</li><li>MAP</li><li>SCTP</li></ul></dd></div>
+            <div><dt>MATLAB course labs</dt><dd>CDMA with Walsh codes, scrambling, fading channels, and BCH coding with interleaving.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 372" role="img" aria-label="UMTS architecture: user equipment connects over Uu to a Node B, over Iub to a radio network controller, which links to other controllers over Iur and to the core network over Iu.">
+              <defs><marker id="a-umts" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <rect class="box" x="30" y="8" width="120" height="36" rx="5"/><text x="90" y="30.5">User equipment</text>
+              <path class="ln" d="M90 44L90 82"/>
+              <text class="start sub" x="106" y="68">Uu (radio)</text>
+              <rect class="box" x="30" y="82" width="120" height="36" rx="5"/><text x="90" y="104.5">Node B</text>
+              <path class="ln" d="M90 118L90 156"/>
+              <text class="start sub" x="106" y="142">Iub</text>
+              <rect class="box hl" x="30" y="156" width="120" height="36" rx="5"/><text x="90" y="178.5">RNC</text>
+              <path class="ln dash" d="M150 174L230 174"/>
+              <text class="sub" x="190" y="166">Iur</text>
+              <rect class="box" x="230" y="156" width="110" height="36" rx="5"/><text x="285" y="178.5">Other RNC</text>
+              <path class="ln" d="M70 192L70 248"/>
+              <text class="end sub" x="62" y="226">Iu-CS</text>
+              <path class="ln" d="M120 192L248 248"/>
+              <text class="start sub" x="196" y="214">Iu-PS</text>
+              <text class="sub" x="180" y="368">Core network: circuit side and packet side</text>
+              <rect class="box" x="20" y="248" width="100" height="36" rx="5"/><text x="70" y="270.5">MSC</text>
+              <rect class="box" x="200" y="248" width="100" height="36" rx="5"/><text x="250" y="270.5">SGSN</text>
+              <path class="ln" d="M70 284L70 312" marker-end="url(#a-umts)"/>
+              <path class="ln" d="M250 284L250 312" marker-end="url(#a-umts)"/>
+              <rect class="box soft" x="10" y="312" width="120" height="36" rx="5"/><text x="70" y="334.5">Phone network</text>
+              <rect class="box" x="190" y="312" width="120" height="36" rx="5"/><text x="250" y="334.5">GGSN</text>
+              <path class="ln" d="M310 330L346 330" marker-end="url(#a-umts)"/>
+              <text class="end sub" x="350" y="310">Internet</text>
+            </svg>
+            <figcaption>The main parts of a UMTS network and the interfaces between them.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: ADVANCED CELLULAR SYSTEMS ===== -->
+
+        <!-- ===== COURSE START: WIRELESS SENSOR NETWORKS ===== -->
+        <details class="course" id="sensor-networks">
+          <summary><h3>Wireless Sensor Networks</h3><span class="what">From the sensing element to the network: how sensor nodes measure, communicate and save energy.</span></summary>
+          <dl class="topics">
+            <div><dt>Sensors and transducers</dt><dd>Potentiometers, encoders, LVDT and RVDT, torque, piezoelectric, strain gauge, pressure, flow and temperature sensors.</dd></div>
+            <div><dt>Foundations</dt><dd>Node architecture, topologies, deployment and applications; underground, underwater, multimedia and body networks.</dd></div>
+            <div><dt>Communication</dt><dd>The protocol stack, IEEE 802.15.4 and ZigBee, and IEEE 802.11.</dd></div>
+            <div><dt>Routing protocols</dt><dd><ul class="tags"><li>SPIN</li><li>Directed diffusion</li><li>LEACH</li><li>PEGASIS</li><li>TEEN</li><li>GAF</li><li>GEAR</li></ul><p>Also multipath, query-based and quality-of-service routing.</p></dd></div>
+            <div><dt>Energy-saving protocols</dt><dd><ul class="tags"><li>S-MAC</li><li>T-MAC</li><li>DMAC</li><li>PAMAS</li><li>STEM</li></ul><p>With duty cycling, data reduction and mobile sinks.</p></dd></div>
+            <div><dt>Data aggregation</dt><dd>Tree-based, cluster-based and secure aggregation.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 306" role="img" aria-label="LEACH clustering: sensor nodes send data to their cluster head, and each cluster head sends it on to the base station.">
+              <defs><marker id="a-leach" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <path class="ln" d="M30 135L75 170"/>
+              <path class="ln" d="M38 210L75 170"/>
+              <path class="ln" d="M105 218L75 170"/>
+              <path class="ln" d="M115 138L75 170"/>
+              <path class="ln dash" d="M75 158L161.1 56" marker-end="url(#a-leach)"/>
+              <circle class="node" cx="30" cy="135" r="7"/>
+              <circle class="node" cx="38" cy="210" r="7"/>
+              <circle class="node" cx="105" cy="218" r="7"/>
+              <circle class="node" cx="115" cy="138" r="7"/>
+              <circle class="node hl" cx="75" cy="170" r="11"/>
+              <path class="ln" d="M150 190L185 225"/>
+              <path class="ln" d="M228 196L185 225"/>
+              <path class="ln" d="M160 266L185 225"/>
+              <path class="ln" d="M224 258L185 225"/>
+              <path class="ln dash" d="M185 213L180.9 56" marker-end="url(#a-leach)"/>
+              <circle class="node" cx="150" cy="190" r="7"/>
+              <circle class="node" cx="228" cy="196" r="7"/>
+              <circle class="node" cx="160" cy="266" r="7"/>
+              <circle class="node" cx="224" cy="258" r="7"/>
+              <circle class="node hl" cx="185" cy="225" r="11"/>
+              <path class="ln" d="M240 134L285 150"/>
+              <path class="ln" d="M325 118L285 150"/>
+              <path class="ln" d="M334 190L285 150"/>
+              <path class="ln" d="M255 185L285 150"/>
+              <path class="ln dash" d="M285 138L198.9 56" marker-end="url(#a-leach)"/>
+              <circle class="node" cx="240" cy="134" r="7"/>
+              <circle class="node" cx="325" cy="118" r="7"/>
+              <circle class="node" cx="334" cy="190" r="7"/>
+              <circle class="node" cx="255" cy="185" r="7"/>
+              <circle class="node hl" cx="285" cy="150" r="11"/>
+              <rect class="box" x="125" y="12" width="110" height="40" rx="5"/><text x="180" y="36.5">Base station</text>
+              <circle class="node hl" cx="22" cy="292" r="9"/>
+              <text class="start" x="38" y="297">Cluster head</text>
+              <circle class="node" cx="190" cy="292" r="7"/>
+              <text class="start" x="204" y="297">Sensor node</text>
+            </svg>
+            <figcaption>LEACH saves energy by grouping nodes into clusters and rotating the cluster head role.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: WIRELESS SENSOR NETWORKS ===== -->
+
+        <!-- ===== COURSE START: NETWORK DESIGN AND PLANNING ===== -->
+        <details class="course" id="network-design">
+          <summary><h3>Network Design and Planning</h3><span class="what">Routing in networks without fixed infrastructure, and software-defined networking in practice.</span></summary>
+          <dl class="topics">
+            <div><dt>Ad hoc networks</dt><dd>Mobile (MANET), vehicle (VANET), flying (FANET) and sensor networks.</dd></div>
+            <div><dt>Proactive routing</dt><dd><ul class="tags"><li>DSDV</li><li>OLSR</li><li>WRP</li><li>FSR</li></ul></dd></div>
+            <div><dt>Reactive routing</dt><dd><ul class="tags"><li>AODV</li><li>DSR</li><li>TORA</li></ul></dd></div>
+            <div><dt>Hybrid routing</dt><dd><ul class="tags"><li>ZRP</li><li>ZHLS</li></ul></dd></div>
+            <div><dt>Software-defined networking</dt><dd>Separate control and data planes, with northbound and southbound interfaces.</dd></div>
+            <div><dt>Course labs</dt><dd>Topologies in Mininet and MiniEdit with Python; OpenFlow messages in Wireshark; flow tables with ovs-ofctl; the Floodlight REST API, firewall and access control lists.</dd></div>
+            <div><dt>Performance measurement</dt><dd>Delay and throughput with ping and iperf, controller tests with cbench, plots in gnuplot.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 262" role="img" aria-label="OpenFlow exchange between a host, a switch and a controller.">
+              <defs><marker id="a-of" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <rect class="box" x="4" y="6" width="92" height="30" rx="5"/><text x="50" y="25.5">Host</text>
+              <path class="life" d="M50 36L50 256"/>
+              <rect class="box" x="134" y="6" width="92" height="30" rx="5"/><text x="180" y="25.5">Switch</text>
+              <path class="life" d="M180 36L180 256"/>
+              <rect class="box" x="264" y="6" width="92" height="30" rx="5"/><text x="310" y="25.5">Controller</text>
+              <path class="life" d="M310 36L310 256"/>
+              <path class="ln" d="M50 72L180 72" marker-end="url(#a-of)"/>
+              <text x="115" y="65">1. First packet</text>
+              <text class="mark" x="180" y="94">No matching flow rule</text>
+              <path class="ln" d="M180 128L310 128" marker-end="url(#a-of)"/>
+              <text x="245" y="121">2. Packet-In</text>
+              <path class="ln" d="M310 164L180 164" marker-end="url(#a-of)"/>
+              <text x="245" y="157">3. Flow-Mod</text>
+              <path class="ln" d="M310 198L180 198" marker-end="url(#a-of)"/>
+              <text x="245" y="191">4. Packet-Out</text>
+              <path class="ln" d="M50 238L180 238" marker-end="url(#a-of)"/>
+              <text x="115" y="231">5. Next packets</text>
+              <text class="sub halo" x="255" y="242">switch handles them</text>
+            </svg>
+            <figcaption>How an OpenFlow switch learns what to do with a new kind of traffic.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: NETWORK DESIGN AND PLANNING ===== -->
+        <p class="also">Other courses include Computer Networks and Network Protocols.</p>
+      </div>
+    </section>
+
+    <section class="block wrap" id="further">
+      <header>
+        <h2>Further topics</h2>
+      </header>
+      <div class="body">
+        <!-- ===== COURSE START: MACHINE LEARNING ===== -->
+        <details class="course" id="machine-learning">
+          <summary><h3>Machine Learning</h3><span class="what">How to learn from network data: predict, classify, detect anomalies and make decisions.</span></summary>
+          <dl class="topics">
+            <div><dt>Method</dt><dd>Data exploration and preparation, training and test sets, cross-validation and avoiding data leakage.</dd></div>
+            <div><dt>Regression</dt><dd>Linear and polynomial models, the bias–variance trade-off, regularization, feature scaling and selection.</dd></div>
+            <div><dt>Classification</dt><dd>Logistic and softmax regression, decision trees, class imbalance, precision, recall and F1 score.</dd></div>
+            <div><dt>Neural networks</dt><dd>Multilayer perceptrons, backpropagation, the Adam optimizer and control of overfitting.</dd></div>
+            <div><dt>Clustering and anomaly detection</dt><dd>K-means, silhouette score, isolation forests, autoencoders and ROC curves.</dd></div>
+            <div><dt>Reinforcement learning</dt><dd>Markov decision processes, Q-learning, exploration and function approximation.</dd></div>
+            <div><dt>Black-box optimization</dt><dd>Surrogate models, Latin hypercube sampling, kriging and expected improvement.</dd></div>
+            <div><dt>Connections</dt><dd>Decision trees reuse entropy from <a href="#information-theory">information theory</a>. Optimizing costly functions also appears in <a href="#simulation">simulation</a>.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 232" role="img" aria-label="Example decision tree that sorts network flows into voice call, messaging, video stream or web page.">
+              <defs><marker id="a-tr" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <path class="ln" d="M180 48L90 92" marker-end="url(#a-tr)"/>
+              <path class="ln" d="M180 48L270 92" marker-end="url(#a-tr)"/>
+              <text class="sub" x="118" y="66">yes</text>
+              <text class="sub" x="244" y="66">no</text>
+              <path class="ln" d="M90 128L48 180" marker-end="url(#a-tr)"/>
+              <path class="ln" d="M90 128L132 180" marker-end="url(#a-tr)"/>
+              <text class="sub" x="52" y="154">yes</text>
+              <text class="sub" x="130" y="154">no</text>
+              <path class="ln" d="M270 128L228 180" marker-end="url(#a-tr)"/>
+              <path class="ln" d="M270 128L312 180" marker-end="url(#a-tr)"/>
+              <text class="sub" x="232" y="154">yes</text>
+              <text class="sub" x="310" y="154">no</text>
+              <rect class="box" x="105" y="12" width="150" height="36" rx="5"/><text x="180" y="34.5">Small packets?</text>
+              <rect class="box" x="25" y="92" width="130" height="36" rx="5"/><text x="90" y="114.5">Evenly spaced?</text>
+              <rect class="box" x="205" y="92" width="130" height="36" rx="5"/><text x="270" y="114.5">Long flow?</text>
+              <rect class="box hl" x="6" y="180" width="82" height="44" rx="5"/><text x="47" y="198">Voice</text><text class="sub" x="47" y="215">call</text>
+              <rect class="box hl" x="94" y="180" width="82" height="44" rx="5"/><text x="135" y="198">Chat</text><text class="sub" x="135" y="215">message</text>
+              <rect class="box hl" x="184" y="180" width="82" height="44" rx="5"/><text x="225" y="198">Video</text><text class="sub" x="225" y="215">stream</text>
+              <rect class="box hl" x="272" y="180" width="82" height="44" rx="5"/><text x="313" y="198">Web</text><text class="sub" x="313" y="215">page</text>
+            </svg>
+            <figcaption>An invented example of a decision tree: each question splits network flows into more uniform groups.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: MACHINE LEARNING ===== -->
+      </div>
+    </section>
+
+    <div class="wrap" style="padding-bottom: 3rem">
+      <p><a class="button" href="index.html#background">Back to my portfolio</a></p>
+    </div>
   </main>
 
   <footer class="wrap">© 2026 Ali Allouf</footer>
+
+  <script>
+  (() => {
+    const $ = id => document.getElementById(id);
+    const courses = [...document.querySelectorAll('details.course')];
+
+    /* Open or close every course */
+    const toggle = $('toggle-all');
+    if (toggle) {
+      const label = () => toggle.textContent = courses.every(c => c.open) ? 'Close all courses' : 'Open all courses';
+      toggle.hidden = false;
+      toggle.addEventListener('click', () => { const open = !courses.every(c => c.open); courses.forEach(c => c.open = open); label(); });
+      courses.forEach(c => c.addEventListener('toggle', label));
+    }
+
+    /* Links to a course open it */
+    const openTarget = hash => {
+      const el = hash.length > 1 && $(hash.slice(1));
+      if (el && el.matches('details')) { el.open = true; el.scrollIntoView(); }
+    };
+    addEventListener('hashchange', () => openTarget(location.hash));
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => {
+      if (a.hash === location.hash) openTarget(a.hash);
+    }));
+    openTarget(location.hash);
+
+    /* Queue chart: read values under the pointer */
+    const chart = $('q-chart');
+    if (chart) {
+      const hit = $('q-hit'), mark = $('q-hover'), out = $('q-out');
+      const move = e => {
+        const box = hit.getBoundingClientRect();
+        const load = Math.min(0.95, Math.max(0, (e.clientX - box.left) / box.width));
+        const wait = load / (1 - load);
+        const x = 48 + load * 294, y = 200 - wait / 20 * 180;
+        mark.removeAttribute('visibility');
+        mark.querySelector('path').setAttribute('d', `M${x} 20V200`);
+        mark.querySelector('circle').setAttribute('cx', x);
+        mark.querySelector('circle').setAttribute('cy', y);
+        out.textContent = `At ${Math.round(load * 100)}% load, the average wait is ${wait.toFixed(2)} service times.`;
+      };
+      hit.addEventListener('pointermove', move);
+      hit.addEventListener('pointerdown', move);
+    }
+
+    /* Antenna array factor */
+    if ($('arr-n')) {
+      const n = $('arr-n'), d = $('arr-d'), b = $('arr-b');
+      const draw = () => {
+        const N = +n.value, D = +d.value, beta = +b.value * Math.PI / 180, kd = 2 * Math.PI * D;
+        const af = t => {
+          const half = (kd * Math.cos(t) + beta) / 2;
+          return Math.abs(Math.sin(half)) < 1e-9 ? 1 : Math.abs(Math.sin(N * half) / (N * Math.sin(half)));
+        };
+        let path = '', best = 0;
+        for (let i = 0; i <= 720; i++) {
+          const t = i * Math.PI / 360, r = 140 * af(t);
+          path += `${i ? 'L' : 'M'}${(180 + r * Math.cos(t)).toFixed(1)} ${(170 - r * Math.sin(t)).toFixed(1)}`;
+          if (i <= 360 && af(t) > best + 1e-9) best = af(t);
+        }
+        $('arr-path').setAttribute('d', path + 'Z');
+        const gap = Math.min(34 * D, 240 / (N - 1));
+        $('arr-dots').innerHTML = Array.from({ length: N }, (_, i) =>
+          `<circle cx="${180 + (i - (N - 1) / 2) * gap}" cy="328" r="4" fill="#18242d"/>`).join('');
+        $('arr-n-v').textContent = N;
+        $('arr-d-v').textContent = `${D.toFixed(2)} wavelengths`;
+        $('arr-b-v').textContent = `${b.value}°`;
+        /* full-strength lobes: kd cos(theta) + beta = 2 pi m */
+        const peaks = [];
+        for (let m = -2; m <= 2; m++) {
+          const c = (2 * Math.PI * m - beta) / kd;
+          if (Math.abs(c) <= 1 + 1e-9) peaks.push(Math.round(Math.acos(Math.max(-1, Math.min(1, c))) * 180 / Math.PI));
+        }
+        peaks.sort((x, y) => x - y);
+        const top = [];
+        for (let i = 0; i <= 360; i++) if (af(i * Math.PI / 360) > best - 1e-6) top.push(Math.round(i / 2));
+        let text = !peaks.length ? `Strongest direction: about ${[...new Set(top)].join('° and ')}°.`
+          : peaks.length === 1 ? `Main beam at ${peaks[0]}°.`
+          : `Full-strength beams at ${peaks.map(p => p + '°').join(', ')}.`;
+        if (peaks.length > 1 && D > 0.5) text += ' Wide spacing adds extra beams (grating lobes).';
+        $('arr-out').textContent = text;
+      };
+      [n, d, b].forEach(el => el.addEventListener('input', draw));
+      document.querySelectorAll('.presets button').forEach(btn => btn.addEventListener('click', () => {
+        d.value = btn.dataset.d; b.value = btn.dataset.b; draw();
+      }));
+      draw();
+    }
+
+    /* Huffman code builder */
+    if ($('huff-in')) {
+      const input = $('huff-in');
+      const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+      const show = c => c === ' ' ? 'space' : esc(c);
+      const draw = () => {
+        const text = input.value.replace(/[^ -~]/g, '');
+        const skipped = text.length !== input.value.length ? ' Only English letters, digits and common symbols are counted.' : '';
+        if (!text) {
+          $('huff-out').textContent = 'Type at least one character.' + skipped;
+          $('huff-tree').innerHTML = $('huff-table').innerHTML = '';
+          return;
+        }
+        const count = {};
+        for (const c of text) count[c] = (count[c] || 0) + 1;
+        let order = 0;
+        const queue = Object.keys(count).sort().map(c => ({ w: count[c], c, o: order++ }));
+        const symbols = queue.length;
+        while (queue.length > 1) {
+          queue.sort((x, y) => x.w - y.w || x.o - y.o);
+          const [l, r] = queue.splice(0, 2);
+          queue.push({ w: l.w + r.w, l, r, o: order++ });
+        }
+        const codes = {};
+        let leaf = 0, depth = 0;
+        const place = (node, code, level) => {
+          node.y = 20 + level * 46; depth = Math.max(depth, level);
+          if (node.c !== undefined) { codes[node.c] = code || '0'; node.x = 22 + leaf++ * 38; return; }
+          place(node.l, code + '0', level + 1); place(node.r, code + '1', level + 1);
+          node.x = (node.l.x + node.r.x) / 2;
+        };
+        place(queue[0], '', 0);
+        let edges = '', nodes = '';
+        const render = node => {
+          if (node.c === undefined) {
+            [node.l, node.r].forEach((kid, bit) => {
+              edges += `<path class="ln" d="M${node.x} ${node.y}L${kid.x} ${kid.y}"/><text class="sub" x="${(node.x + kid.x) / 2 + (bit ? 7 : -7)}" y="${(node.y + kid.y) / 2}">${bit}</text>`;
+              render(kid);
+            });
+            nodes += `<circle class="node" cx="${node.x}" cy="${node.y}" r="13"/><text x="${node.x}" y="${node.y + 4.5}">${node.w}</text>`;
+          } else {
+            nodes += `<rect class="box hl" x="${node.x - 17}" y="${node.y - 13}" width="34" height="26" rx="5"/><text x="${node.x}" y="${node.y + 4.5}"${node.c === ' ' ? ' style="font-size:10px"' : ''}>${show(node.c)}</text><text class="sub" x="${node.x}" y="${node.y + 28}">${node.w}</text>`;
+          }
+        };
+        render(queue[0]);
+        const width = Math.max(leaf * 38 + 6, 60), height = 56 + depth * 46;
+        $('huff-tree').innerHTML = `<svg class="d" style="width:100%;min-width:${Math.round(width * 0.7)}px;max-width:${width}px;height:auto" viewBox="0 0 ${width} ${height}" role="img" aria-label="Huffman tree for the phrase">${edges}${nodes}</svg>`;
+        const total = text.length;
+        const bits = Object.keys(count).reduce((s, c) => s + count[c] * codes[c].length, 0);
+        const entropy = Object.values(count).reduce((s, w) => s - w / total * Math.log2(w / total), 0);
+        $('huff-out').textContent = `Huffman: ${bits} bits. ASCII: ${total * 7} bits. ${Math.round(100 - bits / (total * 7) * 100)}% smaller. Average ${(bits / total).toFixed(2)} bits per character; entropy ${entropy.toFixed(2)}.` + skipped;
+        $('huff-table').innerHTML = '<table><thead><tr><th>Character</th><th>Count</th><th>Code</th></tr></thead><tbody>' +
+          Object.keys(count).sort((x, y) => count[y] - count[x] || x.localeCompare(y)).map(c => `<tr><td>${show(c)}</td><td>${count[c]}</td><td>${codes[c]}</td></tr>`).join('') + '</tbody></table>';
+      };
+      input.addEventListener('input', draw);
+      draw();
+    }
+  })();
+  </script>
 </body>
 </html>

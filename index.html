@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ali Allouf: smart sensing, digital twins and urban traffic</title>
+  <meta name="description" content="Portfolio of Ali Allouf: research on urban digital twins, traffic anomaly detection and formal verification, with a background in telecommunication engineering and data science.">
+  <meta property="og:title" content="Ali Allouf">
+  <meta property="og:description" content="Smart sensing, digital twins and urban traffic monitoring.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top wrap">
+    <a class="home" href="#main">Ali Allouf</a>
+    <nav aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#publication">Publication</a>
+      <a href="#background">Background</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="intro wrap">
+      <div>
+        <!-- ===== INTRO START: change only the words between the tags ===== -->
+        <h1>I study how city traffic behaves, using data from sensors in the road.</h1>
+        <p>I'm Ali Allouf. My background is in telecommunication engineering, smart sensing and data science, and my research builds digital-twin models that detect and check unusual traffic behaviour in Madrid.</p>
+        <p class="status">I'm looking for PhD positions in France and entry-level engineering or data science roles in Île-de-France.</p>
+        <!-- ===== INTRO END ===== -->
+        <p><a class="button" href="assets/Ali_Allouf_CV.pdf" download>Download resume</a></p>
+      </div>
+      <!-- PHOTO: upload your picture as assets/photo.jpg -->
+      <img class="photo" src="assets/photo.jpg" alt="Portrait of Ali Allouf" width="600" height="750">
+    </section>
+
+    <figure class="loop wrap">
+      <svg id="loop-figure" viewBox="0 0 960 300" role="img" aria-labelledby="loop-title">
+        <title id="loop-title">A vehicle drives over an inductive loop buried in the road. The loop's inductance drops while the vehicle is above it.</title>
+        <rect class="road" x="0" y="0" width="960" height="150" rx="6"/>
+        <line class="lane" x1="0" y1="18" x2="960" y2="18"/>
+        <line class="lane" x1="0" y1="132" x2="960" y2="132"/>
+        <rect class="cut" x="420" y="38" width="120" height="74" rx="12"/>
+        <rect class="cut" x="428" y="46" width="104" height="58" rx="8"/>
+        <path class="cut" d="M480 112 V150"/>
+        <g id="car" transform="translate(480 75)">
+          <rect class="car-body" x="-62" y="-30" width="124" height="60" rx="16"/>
+          <rect class="car-glass" x="12" y="-23" width="22" height="46" rx="6"/>
+          <rect class="car-glass" x="-40" y="-21" width="14" height="42" rx="5"/>
+        </g>
+        <line class="axis" x1="0" y1="190" x2="960" y2="190"/>
+        <path id="trace-ghost" class="trace-ghost"/>
+        <path id="trace" class="trace"/>
+        <circle id="probe" class="probe" cx="480" cy="270" r="6"/>
+        <text x="0" y="178">Loop inductance</text>
+      </svg>
+      <figcaption>
+        <span>Illustration, not measured data. A passing vehicle lowers the inductance of the buried loop; that change is what the sensor records.</span>
+        <button type="button" id="replay">Replay</button>
+      </figcaption>
+    </figure>
+
+    <section class="block wrap" id="research">
+      <h2>Research</h2>
+      <div class="body">
+        <p>My work centres on the Bravo Murillo intersection in Madrid's Urban-North corridor and its inductive loop sensors.</p>
+
+        <article>
+          <h3>A tensor-based structural behaviour discovery framework for urban digital twins</h3>
+          <p class="kind">Master's thesis</p>
+          <p>A framework that uses Tucker decomposition, with deliberately under-complete ranks (4, 4, 2), to discover behaviour patterns in traffic data.</p>
+          <p class="methods">Tensor decomposition, Policy Tensor, digital twins</p>
+        </article>
+
+        <article>
+          <h3>Spatial traffic anomaly detection with optimal transport</h3>
+          <p class="kind">Research pipeline</p>
+          <p>Compares how traffic is distributed across sensors using Wasserstein (Earth Mover's) distance, with spatiotemporal cost matrices, to flag deviations from expected behaviour.</p>
+          <p class="methods">Wasserstein and sliced Wasserstein distance, Python, Madrid Traffic Portal data</p>
+        </article>
+
+        <article>
+          <h3>From traffic data to verifiable behaviour models</h3>
+          <p class="kind">Formal modelling</p>
+          <p>Decision trees divide traffic behaviour into 44 temporal windows, and clustering their outputs limits state explosion. The model is expressed as ReqIF requirements, a SysML v2.0 state machine and SMT-LIB2 constraints checked with the Z3 solver, with what-if scenarios traced back to requirements.</p>
+          <p class="methods">Decision trees, clustering, Z3, SysML v2.0, UPPAAL, ReqIF</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block wrap" id="publication">
+      <h2>Publication</h2>
+      <div class="body">
+        <!-- When you have the final details, replace the heading with the exact paper title,
+             add the author list, set the status, and add the DOI link. -->
+        <article>
+          <h3>Traffic anomaly detection at the Bravo Murillo intersection with Tucker decomposition and a Policy Tensor framework</h3>
+          <p class="kind">IEEE Sensors Letters, in revision</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block wrap" id="background">
+      <h2>Background</h2>
+      <div class="body">
+        <article>
+          <h3>Research intern, digital twins modelling</h3>
+          <p class="kind">SAMOVAR laboratory, Télécom SudParis. March to August 2026</p>
+          <p>End-of-studies research internship.</p>
+        </article>
+        <article>
+          <h3>Dual-degree MSc</h3>
+          <p>Data Science and Network Intelligence, Télécom SudParis, Institut Polytechnique de Paris.</p>
+          <p>Telecommunication Engineering: Smart Sensing, Computing and Networking, University of Calabria.</p>
+        </article>
+        <article>
+          <h3>BSc in Electronic and Communication Engineering</h3>
+          <p>Latakia (Tishreen) University.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block wrap" id="skills">
+      <h2>Skills</h2>
+      <dl class="body">
+        <div><dt>Data and machine learning</dt><dd>Tensor decomposition, optimal transport, decision trees, clustering, anomaly detection</dd></div>
+        <div><dt>Modelling and verification</dt><dd>Digital twins, SysML v2.0, UPPAAL, Z3 and SMT-LIB2, ReqIF</dd></div>
+        <div><dt>Engineering domains</dt><dd>Telecommunications, smart sensing, networking, intelligent traffic monitoring</dd></div>
+        <div><dt>Programming</dt><dd>Python</dd></div>
+      </dl>
+    </section>
+
+    <section class="block wrap" id="contact">
+      <h2>Contact</h2>
+      <div class="body">
+        <p>I'm based in Île-de-France, France, and happy to talk about PhD projects, research collaboration and engineering roles.</p>
+        <!-- ADD YOUR LINKS: fill in the addresses below, then delete the two comment markers around the list.
+        <ul class="links">
+          <li><a href="mailto:YOUR_EMAIL">Email me</a></li>
+          <li><a href="https://github.com/YOUR_USERNAME">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/YOUR_PROFILE">LinkedIn</a></li>
+          <li><a href="assets/Ali_Allouf_CV.pdf">Download my CV (PDF)</a></li>
+        </ul>
+        -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">© 2026 Ali Allouf</footer>
+  <script src="assets/loop.js"></script>
+</body>
+</html>

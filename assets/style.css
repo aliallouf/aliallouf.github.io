@@ -47,9 +47,12 @@ h1 { margin: 0 0 1.5rem; max-width: 19ch; font-weight: 800; font-size: clamp(2.1
 .tech svg { width: 48px; height: 48px; fill: none; stroke: var(--link); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
 .tech h3 { margin-top: 0.75rem; font-size: 1.05rem; }
 .tech p { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
-.points { margin: 0.75rem 0 0; padding-left: 1.2rem; }
-.points li { margin-bottom: 0.5rem; }
-.points li::marker { color: var(--link); }
+.flow { list-style: none; margin: 1.5rem 0 0; padding: 0; display: flex; align-items: center; }
+.flow li { display: flex; align-items: center; }
+.flow li + li { flex: 1; }
+.flow li + li::before { content: ""; flex: 1; min-width: 10px; height: 10px; margin-inline: clamp(3px, 1vw, 10px); background: var(--muted); clip-path: polygon(0 4px, calc(100% - 8px) 4px, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, calc(100% - 8px) 6px, 0 6px); }
+.flow svg { width: clamp(48px, 13vw, 104px); height: auto; aspect-ratio: 1; background: #fff; border-radius: 50%; fill: none; stroke: var(--link); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.flow .alert { fill: var(--marking); stroke: var(--ink); }
 
 .block { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; padding-block: 3rem; border-top: 1px solid var(--rule); scroll-margin-top: 1rem; }
 h2 { margin: 0; font-size: 1.6rem; font-weight: 800; line-height: 1.2; }
@@ -80,6 +83,9 @@ footer { padding-block: 2rem 3rem; border-top: 1px solid var(--rule); color: var
 }
 @media (max-width: 460px) {
   .tech ul { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 360px) {
+  h1 { font-size: 1.65rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

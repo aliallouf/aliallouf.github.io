@@ -259,7 +259,8 @@
             <div><dt>Method</dt><dd>Data exploration and preparation, training and test sets, cross-validation and avoiding data leakage.</dd></div>
             <div><dt>Regression</dt><dd>Linear and polynomial models, the bias–variance trade-off, regularization, feature scaling and selection.</dd></div>
             <div><dt>Classification</dt><dd>Logistic and softmax regression, decision trees, class imbalance, precision, recall and F1 score.</dd></div>
-            <div><dt>Neural networks</dt><dd>Multilayer perceptrons, backpropagation, the Adam optimizer and control of overfitting.</dd></div>
+            <div><dt>Neural networks</dt><dd>Multilayer perceptrons, backpropagation and the chain rule, vanishing gradients, cross-entropy loss, Xavier and He weight initialization, and the Adam optimizer.</dd></div>
+            <div><dt>Training and monitoring</dt><dd>Learning curves, overfitting and underfitting, data augmentation, L1 and L2 regularization, dropout and early stopping; evaluation metrics, model drift and data drift.</dd></div>
             <div><dt>Clustering and anomaly detection</dt><dd>K-means, silhouette score, isolation forests, autoencoders and ROC curves.</dd></div>
             <div><dt>Reinforcement learning</dt><dd>Markov decision processes, Q-learning, exploration and function approximation.</dd></div>
             <div><dt>Black-box optimization</dt><dd>Surrogate models, Latin hypercube sampling, kriging and expected improvement.</dd></div>
@@ -797,7 +798,90 @@
           </figure>
         </details>
         <!-- ===== COURSE END: NETWORK DESIGN AND PLANNING ===== -->
-        <p class="also">Other courses include Computer Networks and Network Protocols.</p>
+
+        <!-- ===== COURSE START: NETWORK PROTOCOLS ===== -->
+        <details class="course" id="network-protocols">
+          <summary><h3>Network Protocols</h3><span class="what">How routers find paths across the Internet, how delivery trees are built and repaired, and how multimedia is carried.</span></summary>
+          <dl class="topics">
+            <div><dt>Graph theory</dt><dd>Edge lists, adjacency and incidence matrices, adjacency lists, breadth-first and depth-first search.</dd></div>
+            <div><dt>Routing principles</dt><dd>Forwarding and routing, metrics, static and dynamic routes, and flooding.</dd></div>
+            <div><dt>Routing algorithms</dt><dd>Distance vector routing with Bellman–Ford and link state routing with Dijkstra.</dd></div>
+            <div><dt>Tree construction</dt><dd>Interconnection topologies, spanning trees, the Kruskal and Prim algorithms and clustering.</dd></div>
+            <div><dt>Fault tolerance</dt><dd>Rebuilding a delivery tree after a node leaves or fails, using backup parents or reserved capacity.</dd></div>
+            <div><dt>Routing protocols</dt><dd><ul class="tags"><li>RIPv1</li><li>RIPv2</li><li>IGRP</li><li>EIGRP</li><li>OSPF</li><li>BGP</li></ul></dd></div>
+            <div><dt>Protocol mechanisms</dt><dd>Autonomous systems, administrative distance, count-to-infinity and split horizon, OSPF areas and designated routers, BGP messages and path attributes.</dd></div>
+            <div><dt>Multimedia protocols</dt><dd><ul class="tags"><li>H.323</li><li>H.225</li><li>Q.931</li><li>H.245</li><li>RTP</li><li>RTCP</li></ul><p>Streaming and interactive applications, delay and jitter, and videoconferencing.</p></dd></div>
+            <div><dt>Connections</dt><dd>Routing without fixed infrastructure continues in <a href="#network-design">network design and planning</a>. RTP returns in <a href="#network-intelligence">IMS services</a>.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 366" role="img" aria-label="The same weighted network of five nodes drawn twice. The minimum spanning tree uses links A-B, B-C, B-D and D-E, with total cost 14. The shortest path tree from A uses links A-B, A-C, B-D and C-E, with total cost 20.">
+              <defs><marker id="a-tree" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <text class="strong" x="180" y="16">Minimum spanning tree: total cost 14</text>
+              <path class="ln thick" d="M34 92L130 40"/>
+              <text class="sub halo" x="74" y="58">4</text>
+              <path class="ln dash" d="M34 92L130 144"/>
+              <text class="sub halo" x="74" y="134">5</text>
+              <path class="ln thick" d="M130 40L130 144"/>
+              <text class="sub halo" x="142" y="96">2</text>
+              <path class="ln thick" d="M130 40L270 40"/>
+              <text class="sub halo" x="200" y="32">5</text>
+              <path class="ln dash" d="M130 144L270 144"/>
+              <text class="sub halo" x="200" y="162">6</text>
+              <path class="ln thick" d="M270 40L270 144"/>
+              <text class="sub halo" x="283" y="96">3</text>
+              <circle class="box hl" cx="34" cy="92" r="15"/><text x="34" y="96.5">A</text>
+              <circle class="box" cx="130" cy="40" r="15"/><text x="130" y="44.5">B</text>
+              <circle class="box" cx="130" cy="144" r="15"/><text x="130" y="148.5">C</text>
+              <circle class="box" cx="270" cy="40" r="15"/><text x="270" y="44.5">D</text>
+              <circle class="box" cx="270" cy="144" r="15"/><text x="270" y="148.5">E</text>
+              <text class="strong" x="180" y="216">Shortest path tree from A: total cost 20</text>
+              <path class="ln thick" d="M34 292L130 240"/>
+              <text class="sub halo" x="74" y="258">4</text>
+              <path class="ln thick" d="M34 292L130 344"/>
+              <text class="sub halo" x="74" y="334">5</text>
+              <path class="ln dash" d="M130 240L130 344"/>
+              <text class="sub halo" x="142" y="296">2</text>
+              <path class="ln thick" d="M130 240L270 240"/>
+              <text class="sub halo" x="200" y="232">5</text>
+              <path class="ln thick" d="M130 344L270 344"/>
+              <text class="sub halo" x="200" y="362">6</text>
+              <path class="ln dash" d="M270 240L270 344"/>
+              <text class="sub halo" x="283" y="296">3</text>
+              <circle class="box hl" cx="34" cy="292" r="15"/><text x="34" y="296.5">A</text>
+              <circle class="box" cx="130" cy="240" r="15"/><text x="130" y="244.5">B</text>
+              <circle class="box" cx="130" cy="344" r="15"/><text x="130" y="348.5">C</text>
+              <circle class="box" cx="270" cy="240" r="15"/><text x="270" y="244.5">D</text>
+              <circle class="box" cx="270" cy="344" r="15"/><text x="270" y="348.5">E</text>
+            </svg>
+            <figcaption>An invented network: the cheapest tree overall is not the one that gives the shortest routes from A. In the first tree, the route to E costs 12 instead of 11.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: NETWORK PROTOCOLS ===== -->
+
+        <!-- ===== COURSE START: NETWORK PROGRAMMING ===== -->
+        <details class="course" id="network-programming">
+          <summary><h3>Network Programming</h3><span class="what">Python programming as a foundation for building network and web applications.</span></summary>
+          <dl class="topics">
+            <div><dt>Python basics</dt><dd>Development environments, data types, strings, lists, tuples, conditions and loops.</dd></div>
+            <div><dt>Functions</dt><dd>Positional, keyword and variable-length arguments, lambda functions, comprehensions, sorting, zip and map, and splitting code into modules.</dd></div>
+            <div><dt>Files</dt><dd>Reading and writing text and CSV files, and saving objects with pickle.</dd></div>
+            <div><dt>Object-oriented programming</dt><dd>Classes and objects, encapsulation, inheritance, polymorphism, method overriding and operator overloading.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 206" role="img" aria-label="Class inheritance: the Router and Sensor classes both inherit from the Device class and each defines its own version of the send method.">
+              <defs><marker id="a-oop" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <rect class="box" x="110" y="8" width="140" height="52" rx="5"/><text x="180" y="30">Device</text><text class="sub" x="180" y="47">name, send()</text>
+              <path class="ln" d="M70 130L150 60" marker-end="url(#a-oop)"/>
+              <path class="ln" d="M290 130L210 60" marker-end="url(#a-oop)"/>
+              <text class="sub" x="180" y="104">inherits from</text>
+              <rect class="box hl" x="10" y="130" width="150" height="52" rx="5"/><text x="85" y="152">Router</text><text class="sub" x="85" y="169">its own send()</text>
+              <rect class="box hl" x="200" y="130" width="150" height="52" rx="5"/><text x="275" y="152">Sensor</text><text class="sub" x="275" y="169">its own send()</text>
+            </svg>
+            <figcaption>An invented example of inheritance: two kinds of device share one interface and behave differently.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: NETWORK PROGRAMMING ===== -->
+        <p class="also">Other courses include Computer Networks.</p>
       </div>
     </section>
 

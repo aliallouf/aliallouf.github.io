@@ -61,6 +61,9 @@
     .d .curve { fill: none; stroke: var(--link); stroke-width: 2.2; stroke-linejoin: round; }
     .d .pt { fill: var(--link); stroke: #fff; stroke-width: 2; }
     .d .cross { stroke: var(--muted); stroke-width: 1; }
+    .d .frame { fill: none; stroke: var(--rule); stroke-width: 1; }
+    .d .fit { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+    .d .dot { fill: var(--link); stroke: #fff; stroke-width: 1; }
     .d .polar { fill: none; stroke: #dde3e7; stroke-width: 1; }
     .d .beam { fill: rgba(10, 90, 134, 0.14); stroke: var(--link); stroke-width: 2; stroke-linejoin: round; }
 
@@ -289,7 +292,119 @@
           </figure>
         </details>
         <!-- ===== COURSE END: DATA SCIENCE: THEORY TO PRACTICE ===== -->
-        <p class="also">Other courses include Network Intelligence and Communication Services.</p>
+
+        <!-- ===== COURSE START: NETWORK INTELLIGENCE AND COMMUNICATION SERVICES ===== -->
+        <details class="course" id="network-intelligence">
+          <summary><h3>Network Intelligence and Communication Services</h3><span class="what">How operators build communication services, and how data and AI help manage networks.</span></summary>
+          <dl class="topics">
+            <div><dt>Service architectures</dt><dd>From intelligent networks and CAMEL to the IP Multimedia Subsystem (IMS) across 3GPP releases.</dd></div>
+            <div><dt>IMS elements</dt><dd><ul class="tags"><li>P-CSCF</li><li>I-CSCF</li><li>S-CSCF</li><li>HSS</li><li>MRF</li></ul></dd></div>
+            <div><dt>IMS protocols</dt><dd><ul class="tags"><li>SIP</li><li>SDP</li><li>Diameter</li><li>RTP</li></ul></dd></div>
+            <div><dt>IMS procedures</dt><dd>Registration, session setup, signaling and media paths, and user identities.</dd></div>
+            <div><dt>Services</dt><dd>Application servers, presence, push-to-talk over cellular, rich communication services and multimedia telephony.</dd></div>
+            <div><dt>Industry evolution</dt><dd>Open network APIs, operators and over-the-top providers, and 5G.</dd></div>
+            <div><dt>Cognitive network management</dt><dd>Network and service management, autonomic control loops, SDN and NFV, TOSCA and YANG, and machine learning for anomaly detection and service-level agreements.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 300" role="img" aria-label="IMS core: the phone signals through the proxy, interrogating and serving call session control functions. These consult the subscriber server, and the serving function invokes application servers.">
+              <defs><marker id="a-ims" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <rect class="box" x="20" y="8" width="130" height="36" rx="5"/><text x="85" y="30.5">Phone</text>
+              <path class="ln" d="M85 44L85 74"/>
+              <rect class="box" x="20" y="74" width="130" height="44" rx="5"/><text x="85" y="92">P-CSCF</text><text class="sub" x="85" y="109">First contact</text>
+              <path class="ln" d="M85 118L85 148"/>
+              <rect class="box" x="20" y="148" width="130" height="44" rx="5"/><text x="85" y="166">I-CSCF</text><text class="sub" x="85" y="183">Finds the server</text>
+              <path class="ln" d="M85 192L85 222"/>
+              <rect class="box hl" x="20" y="222" width="130" height="44" rx="5"/><text x="85" y="240">S-CSCF</text><text class="sub" x="85" y="257">Controls sessions</text>
+              <rect class="box" x="220" y="148" width="130" height="44" rx="5"/><text x="285" y="166">HSS</text><text class="sub" x="285" y="183">Subscriber data</text>
+              <path class="ln dash" d="M150 170L220 170"/>
+              <path class="ln dash" d="M150 232L228 192"/>
+              <rect class="box" x="220" y="222" width="130" height="44" rx="5"/><text x="285" y="240">App servers</text><text class="sub" x="285" y="257">Added services</text>
+              <path class="ln" d="M150 244L220 244"/>
+              <path class="ln" d="M96 286L130 286"/>
+              <text class="start sub" x="138" y="290">SIP</text>
+              <path class="ln dash" d="M200 286L234 286"/>
+              <text class="start sub" x="242" y="290">Diameter</text>
+            </svg>
+            <figcaption>A simplified view of the IMS core and the protocols between its parts.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: NETWORK INTELLIGENCE AND COMMUNICATION SERVICES ===== -->
+
+        <!-- ===== COURSE START: DATA VISUALISATION ===== -->
+        <details class="course" id="data-visualisation">
+          <summary><h3>Data Visualisation</h3><span class="what">How people perceive images, and how to turn data into pictures that are read correctly.</span></summary>
+          <dl class="topics">
+            <div><dt>Perception</dt><dd>Visual illusions, brightness and contrast, change blindness and Gestalt principles.</dd></div>
+            <div><dt>Foundations</dt><dd>The visualization pipeline; scientific visualization, information visualization and infographics; data attribute types.</dd></div>
+            <div><dt>Color</dt><dd>Color map design, rainbow and gray scales, color banding and contouring.</dd></div>
+            <div><dt>Tables and many dimensions</dt><dd>Table lenses, parallel coordinates, scatterplot matrices and projections.</dd></div>
+            <div><dt>Trees and graphs</dt><dd>Node-link layouts, treemaps, force-directed layouts and matrix plots.</dd></div>
+            <div><dt>Immersive views</dt><dd>Augmented and virtual reality for visualization.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 276" role="img" aria-label="Anscombe's quartet: four small scatter plots with the same averages and fitted line but different shapes: a loose line, a curve, a line with one outlier, and a vertical cluster with one distant point.">
+              <defs><marker id="a-an" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <rect class="frame" x="8" y="22" width="164" height="108"/>
+              <text class="strong" x="90" y="15">Set I</text>
+              <path class="fit" d="M16.6 107.5L163.4 31.0"/>
+              <circle class="dot" cx="77.1" cy="75.6" r="3.8"/>
+              <circle class="dot" cx="59.8" cy="85.4" r="3.8"/>
+              <circle class="dot" cx="102.9" cy="79.8" r="3.8"/>
+              <circle class="dot" cx="68.4" cy="68.7" r="3.8"/>
+              <circle class="dot" cx="85.7" cy="73.0" r="3.8"/>
+              <circle class="dot" cx="111.6" cy="58.4" r="3.8"/>
+              <circle class="dot" cx="42.5" cy="82.8" r="3.8"/>
+              <circle class="dot" cx="25.3" cy="109.7" r="3.8"/>
+              <circle class="dot" cx="94.3" cy="50.4" r="3.8"/>
+              <circle class="dot" cx="51.2" cy="104.6" r="3.8"/>
+              <circle class="dot" cx="33.9" cy="96.9" r="3.8"/>
+              <rect class="frame" x="188" y="22" width="164" height="108"/>
+              <text class="strong" x="270" y="15">Set II</text>
+              <path class="fit" d="M196.6 107.5L343.4 31.0"/>
+              <circle class="dot" cx="257.1" cy="65.7" r="3.8"/>
+              <circle class="dot" cx="239.8" cy="74.7" r="3.8"/>
+              <circle class="dot" cx="282.9" cy="69.3" r="3.8"/>
+              <circle class="dot" cx="248.4" cy="69.1" r="3.8"/>
+              <circle class="dot" cx="265.7" cy="64.7" r="3.8"/>
+              <circle class="dot" cx="291.6" cy="75.1" r="3.8"/>
+              <circle class="dot" cx="222.5" cy="92.8" r="3.8"/>
+              <circle class="dot" cx="205.3" cy="120.1" r="3.8"/>
+              <circle class="dot" cx="274.3" cy="65.8" r="3.8"/>
+              <circle class="dot" cx="231.2" cy="82.7" r="3.8"/>
+              <circle class="dot" cx="213.9" cy="105.3" r="3.8"/>
+              <rect class="frame" x="8" y="162" width="164" height="108"/>
+              <text class="strong" x="90" y="155">Set III</text>
+              <path class="fit" d="M16.6 247.5L163.4 171.0"/>
+              <circle class="dot" cx="77.1" cy="220.9" r="3.8"/>
+              <circle class="dot" cx="59.8" cy="227.1" r="3.8"/>
+              <circle class="dot" cx="102.9" cy="173.3" r="3.8"/>
+              <circle class="dot" cx="68.4" cy="224.0" r="3.8"/>
+              <circle class="dot" cx="85.7" cy="217.7" r="3.8"/>
+              <circle class="dot" cx="111.6" cy="208.4" r="3.8"/>
+              <circle class="dot" cx="42.5" cy="233.3" r="3.8"/>
+              <circle class="dot" cx="25.3" cy="239.5" r="3.8"/>
+              <circle class="dot" cx="94.3" cy="214.6" r="3.8"/>
+              <circle class="dot" cx="51.2" cy="230.2" r="3.8"/>
+              <circle class="dot" cx="33.9" cy="236.4" r="3.8"/>
+              <rect class="frame" x="188" y="162" width="164" height="108"/>
+              <text class="strong" x="270" y="155">Set IV</text>
+              <path class="fit" d="M196.6 247.5L343.4 171.0"/>
+              <circle class="dot" cx="239.8" cy="228.8" r="3.8"/>
+              <circle class="dot" cx="239.8" cy="236.2" r="3.8"/>
+              <circle class="dot" cx="239.8" cy="218.6" r="3.8"/>
+              <circle class="dot" cx="239.8" cy="208.4" r="3.8"/>
+              <circle class="dot" cx="239.8" cy="211.8" r="3.8"/>
+              <circle class="dot" cx="239.8" cy="224.6" r="3.8"/>
+              <circle class="dot" cx="239.8" cy="240.8" r="3.8"/>
+              <circle class="dot" cx="334.7" cy="175.5" r="3.8"/>
+              <circle class="dot" cx="239.8" cy="238.0" r="3.8"/>
+              <circle class="dot" cx="239.8" cy="216.8" r="3.8"/>
+              <circle class="dot" cx="239.8" cy="226.0" r="3.8"/>
+            </svg>
+            <figcaption>Why we plot data: Anscombe’s four datasets share almost the same mean, variance, correlation and fitted line (y = 3 + 0.5x), yet look very different.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: DATA VISUALISATION ===== -->
       </div>
     </section>
 
@@ -464,6 +579,49 @@
           </figure>
         </details>
         <!-- ===== COURSE END: INFORMATION THEORY AND CODING ===== -->
+
+        <!-- ===== COURSE START: MICROCONTROLLERS AND PROCESSORS ===== -->
+        <details class="course" id="microcontrollers">
+          <summary><h3>Microcontrollers and Processors</h3><span class="what">Inside a small computer on a chip: architecture, instructions, memory and peripherals, using PIC microcontrollers.</span></summary>
+          <dl class="topics">
+            <div><dt>Architecture</dt><dd>Microprocessors and microcontrollers, PIC families, Harvard and von Neumann designs, instruction pipelining and clocking.</dd></div>
+            <div><dt>Clock and reset</dt><dd>Oscillator options, configuration bits, power-on and brown-out reset, and start-up timers.</dd></div>
+            <div><dt>Assembly programming</dt><dd>The arithmetic logic unit, status register and PIC mid-range instruction set.</dd></div>
+            <div><dt>Memory</dt><dd>Program memory, paging and the stack; data memory banks with direct and indirect addressing.</dd></div>
+            <div><dt>Interrupts</dt><dd>Sources and registers, latency, context saving and service routines.</dd></div>
+            <div><dt>Peripherals</dt><dd>Analog-to-digital conversion, Timer0 and delay calculation, and driving seven-segment displays.</dd></div>
+            <div><dt>Device studied</dt><dd><ul class="tags"><li>PIC16F877</li></ul></dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 232" role="img" aria-label="Two-stage pipeline: while one instruction runs, the next is fetched. After a CALL, the already fetched instruction is dropped and the target is fetched instead.">
+              <defs><marker id="a-pl" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <text class="sub" x="85" y="16">1</text>
+              <text class="sub" x="134" y="16">2</text>
+              <text class="sub" x="183" y="16">3</text>
+              <text class="sub" x="232" y="16">4</text>
+              <text class="sub" x="281" y="16">5</text>
+              <text class="sub" x="330" y="16">6</text>
+              <text class="start sub" x="8" y="16">Cycle</text>
+              <text class="start" x="8" y="48">Instr. 1</text>
+              <text class="start" x="8" y="88">Instr. 2</text>
+              <text class="start" x="8" y="128">CALL</text>
+              <text class="start" x="8" y="168">Next one</text>
+              <text class="start" x="8" y="208">Target</text>
+              <rect class="box" x="62" y="28" width="46" height="32" rx="4"/><text x="85" y="48">Fetch</text>
+              <rect class="box" x="111" y="68" width="46" height="32" rx="4"/><text x="134" y="88">Fetch</text>
+              <rect class="box" x="160" y="108" width="46" height="32" rx="4"/><text x="183" y="128">Fetch</text>
+              <rect class="box" x="209" y="148" width="46" height="32" rx="4"/><text x="232" y="168">Fetch</text>
+              <rect class="box" x="258" y="188" width="46" height="32" rx="4"/><text x="281" y="208">Fetch</text>
+              <rect class="box hl" x="111" y="28" width="46" height="32" rx="4"/><text x="134" y="48">Run</text>
+              <rect class="box hl" x="160" y="68" width="46" height="32" rx="4"/><text x="183" y="88">Run</text>
+              <rect class="box hl" x="209" y="108" width="46" height="32" rx="4"/><text x="232" y="128">Run</text>
+              <rect class="box hl" x="307" y="188" width="46" height="32" rx="4"/><text x="330" y="208">Run</text>
+              <rect class="box soft" x="258" y="148" width="46" height="32" rx="4"/><text x="281" y="168">Drop</text>
+            </svg>
+            <figcaption>The PIC pipeline fetches the next instruction while running the current one. A jump costs one extra cycle.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: MICROCONTROLLERS AND PROCESSORS ===== -->
 
         <!-- ===== COURSE START: ANTENNAS ===== -->
         <details class="course" id="antennas">

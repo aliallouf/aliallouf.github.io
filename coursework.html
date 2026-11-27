@@ -123,7 +123,173 @@
         <p class="kind">MSc, 2025 – 2026</p>
       </header>
       <div class="body">
-        <p>Courses include Wireless Access Networks, Network Intelligence and Communication Services, and Data Science.</p>
+        <!-- ===== COURSE START: INTERNET OF THINGS AND DIGITAL TWINS ===== -->
+        <details class="course" id="iot-digital-twins">
+          <summary><h3>Internet of Things and Digital Twins</h3><span class="what">From connected sensors to software twins of physical objects.</span></summary>
+          <dl class="topics">
+            <div><dt>IoT foundations</dt><dd>Smart objects, sensors and actuators, identity and discovery, and the challenges of distributed systems.</dd></div>
+            <div><dt>How things interact</dt><dd>REST, publish and subscribe, message brokers, middleware and APIs.</dd></div>
+            <div><dt>Connectivity</dt><dd>Short-range and low-power wide-area options, including DASH7, Sigfox and NB-IoT. Related: <a href="#iot-networking">networking aspects of IoT</a>.</dd></div>
+            <div><dt>Application protocols</dt><dd><ul class="tags"><li>CoAP</li><li>MQTT</li><li>AMQP</li><li>DDS</li></ul></dd></div>
+            <div><dt>Network and edge</dt><dd>Network function virtualization, software-defined networking, 5G network slicing, fog and mobile edge computing, and microservices.</dd></div>
+            <div><dt>Platforms and standards</dt><dd><ul class="tags"><li>oneM2M</li><li>FIWARE</li><li>Eclipse Ditto</li><li>Eclipse Kura</li><li>Eclipse Hono</li><li>IEEE P2413</li><li>Contiki</li><li>TinyOS</li><li>RIOT</li></ul></dd></div>
+            <div><dt>Digital twin properties</dt><dd>Representativeness, reflection, replication, entanglement, persistence, memorization, composability, manageability, augmentation, ownership, servitization and predictability.</dd></div>
+            <div><dt>Data and society</dt><dd>Machine learning on sensor data, context awareness, data ownership and business models.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 262" role="img" aria-label="A digital twin: a physical object sends status and sensor data to its software twin, which returns commands and offers history, simulation and services.">
+              <defs><marker id="a-dt" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <rect class="box" x="70" y="10" width="220" height="52" rx="5"/><text x="180" y="32">Physical object</text><text class="sub" x="180" y="49">Sensors and actuators</text>
+              <path class="ln" d="M130 62L130 124" marker-end="url(#a-dt)"/>
+              <path class="ln" d="M230 124L230 62" marker-end="url(#a-dt)"/>
+              <text class="end sub" x="120" y="97">Data and status</text>
+              <text class="start sub" x="240" y="97">Commands</text>
+              <rect class="box hl" x="70" y="124" width="220" height="52" rx="5"/><text x="180" y="146">Digital twin</text><text class="sub" x="180" y="163">Software model and data</text>
+              <path class="ln" d="M180 176L62 208" marker-end="url(#a-dt)"/>
+              <path class="ln" d="M180 176L180 208" marker-end="url(#a-dt)"/>
+              <path class="ln" d="M180 176L298 208" marker-end="url(#a-dt)"/>
+              <rect class="box" x="10" y="208" width="104" height="36" rx="5"/><text x="62" y="230.5">History</text>
+              <rect class="box" x="128" y="208" width="104" height="36" rx="5"/><text x="180" y="230.5">Simulation</text>
+              <rect class="box" x="246" y="208" width="104" height="36" rx="5"/><text x="298" y="230.5">Services</text>
+            </svg>
+            <figcaption>A digital twin stays linked to its physical object and reflects its state.</figcaption>
+          </figure>
+          <p class="related">Related to my <a href="index.html#research">research interest in digital twins</a>.</p>
+        </details>
+        <!-- ===== COURSE END: INTERNET OF THINGS AND DIGITAL TWINS ===== -->
+
+        <!-- ===== COURSE START: BLOCKCHAIN FOR DATA SCIENTISTS: FROM CYBERSECURITY TO SMART CONTRACTS &AMP; FINTECH CHALLENGES ===== -->
+        <details class="course" id="blockchain">
+          <summary><h3>Blockchain for Data Scientists: from Cybersecurity to Smart Contracts &amp; Fintech Challenges</h3><span class="what">From cryptographic building blocks to Bitcoin, consensus and smart contracts.</span></summary>
+          <dl class="topics">
+            <div><dt>Hash functions</dt><dd>One-way and collision resistance, the birthday paradox, the SHA families and perceptual hashing.</dd></div>
+            <div><dt>Cryptography</dt><dd>Symmetric and public-key encryption, authentication and digital signatures, discrete logarithms and elliptic curves.</dd></div>
+            <div><dt>Algorithms</dt><dd><ul class="tags"><li>AES</li><li>RSA</li><li>Diffie–Hellman</li><li>ECDH</li><li>ECDSA</li></ul></dd></div>
+            <div><dt>Distributed ledgers</dt><dd>From Web1 to Web3; permissioned and permissionless blockchains.</dd></div>
+            <div><dt>Bitcoin</dt><dd>Wallets, keys and addresses (including SegWit and Taproot), transactions, scripts and halving.</dd></div>
+            <div><dt>Malware and ransomware</dt><dd>Cryptovirology, botnets, and following WannaCry ransom payments on the public ledger.</dd></div>
+            <div><dt>Consensus</dt><dd><ul class="tags"><li>PBFT</li><li>Proof of Work</li><li>Proof of Stake</li><li>Proof of Authority</li></ul></dd></div>
+            <div><dt>Smart contracts</dt><dd>Ethereum, gas, the Ethereum Virtual Machine, Solidity, oracles, and the ERC-20 and ERC-721 token standards.</dd></div>
+            <div><dt>Course labs</dt><dd>An attendance contract in Solidity, and minting an NFT certificate with its metadata on IPFS.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 162" role="img" aria-label="Three linked blocks. Each stores the hash of the block before it.">
+              <defs><marker id="a-bc" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <text class="sub" x="180" y="18">Each block points to the one before it</text>
+              <rect class="box" x="6" y="34" width="100" height="112" rx="5"/>
+              <text class="strong" x="56" y="56">Block 1</text>
+              <text class="sub" x="56" y="80">Previous hash</text>
+              <text class="mark" x="56" y="96">0000</text>
+              <text class="sub" x="56" y="118">Transactions</text>
+              <text class="sub" x="56" y="135">Hash 7A2F</text>
+              <rect class="box" x="130" y="34" width="100" height="112" rx="5"/>
+              <text class="strong" x="180" y="56">Block 2</text>
+              <text class="sub" x="180" y="80">Previous hash</text>
+              <text class="mark" x="180" y="96">7A2F</text>
+              <text class="sub" x="180" y="118">Transactions</text>
+              <text class="sub" x="180" y="135">Hash C91B</text>
+              <rect class="box" x="254" y="34" width="100" height="112" rx="5"/>
+              <text class="strong" x="304" y="56">Block 3</text>
+              <text class="sub" x="304" y="80">Previous hash</text>
+              <text class="mark" x="304" y="96">C91B</text>
+              <text class="sub" x="304" y="118">Transactions</text>
+              <text class="sub" x="304" y="135">Hash 54E0</text>
+              <path class="ln" d="M130 92L108 92" marker-end="url(#a-bc)"/>
+              <path class="ln" d="M254 92L232 92" marker-end="url(#a-bc)"/>
+            </svg>
+            <figcaption>A simplified chain with shortened, made-up hashes. Changing old data changes its hash and breaks the link that follows.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: BLOCKCHAIN FOR DATA SCIENTISTS: FROM CYBERSECURITY TO SMART CONTRACTS &AMP; FINTECH CHALLENGES ===== -->
+
+        <!-- ===== COURSE START: WIRELESS ACCESS NETWORKS: STATE OF THE ART, CHALLENGES AND EVOLUTIONS ===== -->
+        <details class="course" id="wireless-access">
+          <summary><h3>Wireless Access Networks: State of the Art, Challenges and Evolutions</h3><span class="what">How mobile access networks grew from GSM to LTE and 5G, and how professional users rely on them.</span></summary>
+          <dl class="topics">
+            <div><dt>Radio and cells</dt><dd>Path loss, fading, shadowing and multipath; frequency reuse, co-channel interference and sectorization.</dd></div>
+            <div><dt>Multiple access</dt><dd>TDMA, FDMA, CDMA, OFDM and OFDMA; PSK and QAM, adaptive modulation and beam-division access.</dd></div>
+            <div><dt>From GSM to LTE</dt><dd>GSM, GPRS, UMTS and LTE access networks, protocol stacks, bearers and quality-of-service classes. Related: <a href="#cellular">advanced cellular systems</a>.</dd></div>
+            <div><dt>LTE core and channels</dt><dd>MME, serving and packet data gateways; logical, transport and physical channels.</dd></div>
+            <div><dt>LTE-Advanced</dt><dd>Carrier aggregation, enhanced multi-antenna transmission, relaying and interference coordination (ICIC, eICIC and CoMP).</dd></div>
+            <div><dt>5G and new architectures</dt><dd>Cloud RAN with CPRI and eCPRI fronthaul, open RAN, standalone and non-standalone options, service-based core, network slicing and edge computing.</dd></div>
+            <div><dt>Professional radio standards</dt><dd><ul class="tags"><li>TETRA</li><li>TETRAPOL</li><li>GSM-R</li><li>MCPTT</li><li>MCData</li><li>MCVideo</li><li>FRMCS</li></ul></dd></div>
+            <div><dt>Professional networks</dt><dd>Public safety, rail and industry: priority and quality of service, and private 5G networks.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 340" role="img" aria-label="LTE architecture: user data passes from the phone through the eNodeB, serving gateway and PDN gateway to the Internet, while signaling goes through the MME, which consults the HSS.">
+              <defs><marker id="a-epc" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <rect class="box" x="40" y="8" width="110" height="34" rx="5"/><text x="95" y="29.5">Phone (UE)</text>
+              <path class="ln" d="M95 42L95 76"/>
+              <text class="start sub" x="106" y="63">Uu</text>
+              <rect class="box" x="40" y="76" width="110" height="34" rx="5"/><text x="95" y="97.5">eNodeB</text>
+              <path class="ln" d="M95 110L95 164"/>
+              <text class="end sub" x="86" y="141">S1-U</text>
+              <rect class="box" x="40" y="164" width="110" height="34" rx="5"/><text x="95" y="185.5">S-GW</text>
+              <path class="ln" d="M95 198L95 230"/>
+              <text class="start sub" x="106" y="218">S5</text>
+              <rect class="box" x="40" y="230" width="110" height="34" rx="5"/><text x="95" y="251.5">P-GW</text>
+              <path class="ln" d="M95 264L95 296" marker-end="url(#a-epc)"/>
+              <text class="start sub" x="106" y="284">SGi</text>
+              <rect class="box soft" x="40" y="296" width="110" height="34" rx="5"/><text x="95" y="317.5">Internet</text>
+              <rect class="box" x="220" y="52" width="110" height="34" rx="5"/><text x="275" y="73.5">HSS</text>
+              <rect class="box hl" x="220" y="122" width="110" height="34" rx="5"/><text x="275" y="143.5">MME</text>
+              <path class="ln dash" d="M275 86L275 122"/>
+              <text class="start sub" x="284" y="108">S6a</text>
+              <path class="ln dash" d="M150 94L220 132"/>
+              <text class="start sub" x="180" y="102">S1-MME</text>
+              <path class="ln dash" d="M220 148L150 180"/>
+              <text class="start sub" x="190" y="180">S11</text>
+              <path class="ln" d="M206 246L240 246"/>
+              <text class="start sub" x="250" y="250">User data</text>
+              <path class="ln dash" d="M206 272L240 272"/>
+              <text class="start sub" x="250" y="276">Signaling</text>
+            </svg>
+            <figcaption>The LTE core separates the path of user data from signaling.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: WIRELESS ACCESS NETWORKS: STATE OF THE ART, CHALLENGES AND EVOLUTIONS ===== -->
+
+        <!-- ===== COURSE START: DATA SCIENCE: THEORY TO PRACTICE ===== -->
+        <details class="course" id="data-science">
+          <summary><h3>Data Science: Theory to Practice</h3><span class="what">How to learn from network data: predict, classify, detect anomalies and make decisions.</span></summary>
+          <dl class="topics">
+            <div><dt>Method</dt><dd>Data exploration and preparation, training and test sets, cross-validation and avoiding data leakage.</dd></div>
+            <div><dt>Regression</dt><dd>Linear and polynomial models, the bias–variance trade-off, regularization, feature scaling and selection.</dd></div>
+            <div><dt>Classification</dt><dd>Logistic and softmax regression, decision trees, class imbalance, precision, recall and F1 score.</dd></div>
+            <div><dt>Neural networks</dt><dd>Multilayer perceptrons, backpropagation, the Adam optimizer and control of overfitting.</dd></div>
+            <div><dt>Clustering and anomaly detection</dt><dd>K-means, silhouette score, isolation forests, autoencoders and ROC curves.</dd></div>
+            <div><dt>Reinforcement learning</dt><dd>Markov decision processes, Q-learning, exploration and function approximation.</dd></div>
+            <div><dt>Black-box optimization</dt><dd>Surrogate models, Latin hypercube sampling, kriging and expected improvement.</dd></div>
+            <div><dt>Connections</dt><dd>Decision trees reuse entropy from <a href="#information-theory">information theory</a>. Optimizing costly functions also appears in <a href="#simulation">simulation</a>.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 232" role="img" aria-label="Example decision tree that sorts network flows into voice call, messaging, video stream or web page.">
+              <defs><marker id="a-tr" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <path class="ln" d="M180 48L90 92" marker-end="url(#a-tr)"/>
+              <path class="ln" d="M180 48L270 92" marker-end="url(#a-tr)"/>
+              <text class="sub" x="118" y="66">yes</text>
+              <text class="sub" x="244" y="66">no</text>
+              <path class="ln" d="M90 128L48 180" marker-end="url(#a-tr)"/>
+              <path class="ln" d="M90 128L132 180" marker-end="url(#a-tr)"/>
+              <text class="sub" x="52" y="154">yes</text>
+              <text class="sub" x="130" y="154">no</text>
+              <path class="ln" d="M270 128L228 180" marker-end="url(#a-tr)"/>
+              <path class="ln" d="M270 128L312 180" marker-end="url(#a-tr)"/>
+              <text class="sub" x="232" y="154">yes</text>
+              <text class="sub" x="310" y="154">no</text>
+              <rect class="box" x="105" y="12" width="150" height="36" rx="5"/><text x="180" y="34.5">Small packets?</text>
+              <rect class="box" x="25" y="92" width="130" height="36" rx="5"/><text x="90" y="114.5">Evenly spaced?</text>
+              <rect class="box" x="205" y="92" width="130" height="36" rx="5"/><text x="270" y="114.5">Long flow?</text>
+              <rect class="box hl" x="6" y="180" width="82" height="44" rx="5"/><text x="47" y="198">Voice</text><text class="sub" x="47" y="215">call</text>
+              <rect class="box hl" x="94" y="180" width="82" height="44" rx="5"/><text x="135" y="198">Chat</text><text class="sub" x="135" y="215">message</text>
+              <rect class="box hl" x="184" y="180" width="82" height="44" rx="5"/><text x="225" y="198">Video</text><text class="sub" x="225" y="215">stream</text>
+              <rect class="box hl" x="272" y="180" width="82" height="44" rx="5"/><text x="313" y="198">Web</text><text class="sub" x="313" y="215">page</text>
+            </svg>
+            <figcaption>An invented example of a decision tree: each question splits network flows into more uniform groups.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: DATA SCIENCE: THEORY TO PRACTICE ===== -->
+        <p class="also">Other courses include Network Intelligence and Communication Services.</p>
       </div>
     </section>
 
@@ -474,54 +640,6 @@
         </details>
         <!-- ===== COURSE END: NETWORK DESIGN AND PLANNING ===== -->
         <p class="also">Other courses include Computer Networks and Network Protocols.</p>
-      </div>
-    </section>
-
-    <section class="block wrap" id="further">
-      <header>
-        <h2>Further topics</h2>
-      </header>
-      <div class="body">
-        <!-- ===== COURSE START: MACHINE LEARNING ===== -->
-        <details class="course" id="machine-learning">
-          <summary><h3>Machine Learning</h3><span class="what">How to learn from network data: predict, classify, detect anomalies and make decisions.</span></summary>
-          <dl class="topics">
-            <div><dt>Method</dt><dd>Data exploration and preparation, training and test sets, cross-validation and avoiding data leakage.</dd></div>
-            <div><dt>Regression</dt><dd>Linear and polynomial models, the bias–variance trade-off, regularization, feature scaling and selection.</dd></div>
-            <div><dt>Classification</dt><dd>Logistic and softmax regression, decision trees, class imbalance, precision, recall and F1 score.</dd></div>
-            <div><dt>Neural networks</dt><dd>Multilayer perceptrons, backpropagation, the Adam optimizer and control of overfitting.</dd></div>
-            <div><dt>Clustering and anomaly detection</dt><dd>K-means, silhouette score, isolation forests, autoencoders and ROC curves.</dd></div>
-            <div><dt>Reinforcement learning</dt><dd>Markov decision processes, Q-learning, exploration and function approximation.</dd></div>
-            <div><dt>Black-box optimization</dt><dd>Surrogate models, Latin hypercube sampling, kriging and expected improvement.</dd></div>
-            <div><dt>Connections</dt><dd>Decision trees reuse entropy from <a href="#information-theory">information theory</a>. Optimizing costly functions also appears in <a href="#simulation">simulation</a>.</dd></div>
-          </dl>
-          <figure>
-            <svg class="d" viewBox="0 0 360 232" role="img" aria-label="Example decision tree that sorts network flows into voice call, messaging, video stream or web page.">
-              <defs><marker id="a-tr" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
-              <path class="ln" d="M180 48L90 92" marker-end="url(#a-tr)"/>
-              <path class="ln" d="M180 48L270 92" marker-end="url(#a-tr)"/>
-              <text class="sub" x="118" y="66">yes</text>
-              <text class="sub" x="244" y="66">no</text>
-              <path class="ln" d="M90 128L48 180" marker-end="url(#a-tr)"/>
-              <path class="ln" d="M90 128L132 180" marker-end="url(#a-tr)"/>
-              <text class="sub" x="52" y="154">yes</text>
-              <text class="sub" x="130" y="154">no</text>
-              <path class="ln" d="M270 128L228 180" marker-end="url(#a-tr)"/>
-              <path class="ln" d="M270 128L312 180" marker-end="url(#a-tr)"/>
-              <text class="sub" x="232" y="154">yes</text>
-              <text class="sub" x="310" y="154">no</text>
-              <rect class="box" x="105" y="12" width="150" height="36" rx="5"/><text x="180" y="34.5">Small packets?</text>
-              <rect class="box" x="25" y="92" width="130" height="36" rx="5"/><text x="90" y="114.5">Evenly spaced?</text>
-              <rect class="box" x="205" y="92" width="130" height="36" rx="5"/><text x="270" y="114.5">Long flow?</text>
-              <rect class="box hl" x="6" y="180" width="82" height="44" rx="5"/><text x="47" y="198">Voice</text><text class="sub" x="47" y="215">call</text>
-              <rect class="box hl" x="94" y="180" width="82" height="44" rx="5"/><text x="135" y="198">Chat</text><text class="sub" x="135" y="215">message</text>
-              <rect class="box hl" x="184" y="180" width="82" height="44" rx="5"/><text x="225" y="198">Video</text><text class="sub" x="225" y="215">stream</text>
-              <rect class="box hl" x="272" y="180" width="82" height="44" rx="5"/><text x="313" y="198">Web</text><text class="sub" x="313" y="215">page</text>
-            </svg>
-            <figcaption>An invented example of a decision tree: each question splits network flows into more uniform groups.</figcaption>
-          </figure>
-        </details>
-        <!-- ===== COURSE END: MACHINE LEARNING ===== -->
       </div>
     </section>
 

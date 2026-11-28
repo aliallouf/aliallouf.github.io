@@ -772,6 +772,9 @@
             <div><dt>Reactive routing</dt><dd><ul class="tags"><li>AODV</li><li>DSR</li><li>TORA</li></ul></dd></div>
             <div><dt>Hybrid routing</dt><dd><ul class="tags"><li>ZRP</li><li>ZHLS</li></ul></dd></div>
             <div><dt>Software-defined networking</dt><dd>Separate control and data planes, with northbound and southbound interfaces.</dd></div>
+            <div><dt>SDN architecture</dt><dd>Infrastructure, control and application layers; controllers such as NOX/POX, Floodlight, Ryu, OpenDaylight and ONOS; common topologies; and how OpenFlow sets up a flow.</dd></div>
+            <div><dt>SDN security</dt><dd>Threats to switches, controllers, applications and the links between them.</dd></div>
+            <div><dt>Cloud and virtualization</dt><dd>Server virtualization and hypervisors, cloud service and deployment models, and virtual network functions. Related: <a href="#cloud-edge">cloud and edge computing</a>.</dd></div>
             <div><dt>Course labs</dt><dd>Topologies in Mininet and MiniEdit with Python; OpenFlow messages in Wireshark; flow tables with ovs-ofctl; the Floodlight REST API, firewall and access control lists.</dd></div>
             <div><dt>Performance measurement</dt><dd>Delay and throughput with ping and iperf, controller tests with cbench, plots in gnuplot.</dd></div>
           </dl>
@@ -814,7 +817,10 @@
             <div><dt>Network layer</dt><dd>IPv4 and IPv6 datagrams, fragmentation, ICMP and ARP, and the move to IPv6 through dual stack, tunneling and header translation.</dd></div>
             <div><dt>Transport layer</dt><dd>Ports and sockets, multiplexing, UDP, TCP segments, and opening and closing connections.</dd></div>
             <div><dt>Reliable delivery</dt><dd>Stop-and-wait, go-back-N and selective repeat, the bandwidth-delay product, piggybacking and TCP flow control.</dd></div>
-            <div><dt>Exercises</dt><dd>Assigning addresses to small networks, finding configuration errors, and routing a Packet Tracer topology with RIP.</dd></div>
+            <div><dt>Exercises</dt><dd>Assigning addresses to small networks and finding configuration errors.</dd></div>
+            <div><dt>Routing labs</dt><dd>In Cisco Packet Tracer: static routes, RIPv2, EIGRP and OSPF, including OSPF with VLANs.</dd></div>
+            <div><dt>VLAN and server labs</dt><dd>Configuring VLANs, and DHCP, DNS, web and email servers, with DHCP relay and a router acting as the DHCP server.</dd></div>
+            <div><dt>Wireless LAN lab</dt><dd>Setting up a wireless router with a network name, DHCP, a new administrator password and wireless security.</dd></div>
             <div><dt>Connections</dt><dd>Routing continues in <a href="#network-protocols">network protocols</a>. Medium access returns in <a href="#sensor-networks">wireless sensor networks</a> and <a href="#iot-networking">IoT networking</a>.</dd></div>
           </dl>
           <figure>
@@ -844,6 +850,47 @@
           </figure>
         </details>
         <!-- ===== COURSE END: COMPUTER NETWORKS ===== -->
+
+        <!-- ===== COURSE START: INTERNET TECHNOLOGY ===== -->
+        <details class="course" id="internet-technology">
+          <summary><h3>Internet Technology</h3><span class="what">How broadband travels over telephone lines, how ATM carries traffic in small cells, and how IPv6 addresses a network.</span></summary>
+          <dl class="topics">
+            <div><dt>DSL family</dt><dd><ul class="tags"><li>HDSL</li><li>SDSL</li><li>G.SHDSL</li><li>ADSL</li><li>RADSL</li><li>VDSL</li></ul><p>Applications, speed and reach, and sharing a copper pair with the telephone service.</p></dd></div>
+            <div><dt>ADSL and VDSL</dt><dd>Frequency division and echo cancellation, the reference model, ADSL framing, and VDSL access networks fed by optical fiber.</dd></div>
+            <div><dt>Line coding</dt><dd>QAM, carrierless amplitude and phase modulation, and discrete multitone.</dd></div>
+            <div><dt>ATM cells</dt><dd>Why cells are small and of fixed size, the header fields, virtual paths and channels, and cell switching.</dd></div>
+            <div><dt>ATM architecture</dt><dd>The protocol reference model, the adaptation layers from AAL1 to AAL5, signaling at user and network interfaces, and IP over ATM.</dd></div>
+            <div><dt>IPv6 addressing</dt><dd>The IPv6 header, address notation and prefixes, global, unique local, link-local, multicast and anycast addresses, subnetting and EUI-64 interface identifiers.</dd></div>
+            <div><dt>Neighbor discovery</dt><dd>Address resolution, router discovery, stateless address autoconfiguration, duplicate address detection and DHCP.</dd></div>
+            <div><dt>Connections</dt><dd>IPv4 addressing and the move to IPv6 are in <a href="#computer-networks">computer networks</a>. Routing continues in <a href="#network-protocols">network protocols</a>.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 244" role="img" aria-label="AAL5 segmentation: a 100-byte IP datagram receives 36 bytes of padding and an 8-byte trailer, making 144 bytes, which are cut into three 48-byte payloads. Each ATM cell adds a 5-byte header, so 159 bytes are sent.">
+              <defs><marker id="a-aal5" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <text class="start" x="10" y="16">1. An IP datagram: 100 bytes</text>
+              <rect class="box hl" x="10" y="24" width="236.111" height="26"/>
+              <text class="start" x="10" y="78">2. AAL5 adds padding and a trailer: 144 bytes</text>
+              <rect class="box hl" x="10" y="86" width="236.111" height="26"/>
+              <rect class="box soft dash" x="246.111" y="86" width="85" height="26"/>
+              <rect class="box" x="331.111" y="86" width="18.8889" height="26"/>
+              <text class="sub" x="288.611" y="128">padding 36</text>
+              <text class="sub end" x="350" y="144">trailer 8</text>
+              <text class="start" x="10" y="174">3. Three ATM cells: 5 + 48 bytes each</text>
+              <rect class="box" x="10" y="182" width="10.1887" height="26"/>
+              <rect class="box hl" x="20.1887" y="182" width="97.8113" height="26"/>
+              <text x="69.09433962264151" y="199.5">cell 1</text>
+              <rect class="box" x="126" y="182" width="10.1887" height="26"/>
+              <rect class="box hl" x="136.189" y="182" width="97.8113" height="26"/>
+              <text x="185.0943396226415" y="199.5">cell 2</text>
+              <rect class="box" x="242" y="182" width="10.1887" height="26"/>
+              <rect class="box hl" x="252.189" y="182" width="97.8113" height="26"/>
+              <text x="301.0943396226415" y="199.5">cell 3</text>
+              <text class="strong" x="180" y="232">159 bytes sent to carry 100</text>
+            </svg>
+            <figcaption>An invented example of how ATM carries an IP datagram. Padding fills the last cell, and every cell spends 5 more bytes on its header.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: INTERNET TECHNOLOGY ===== -->
 
         <!-- ===== COURSE START: NETWORK PROTOCOLS ===== -->
         <details class="course" id="network-protocols">

@@ -715,6 +715,9 @@
             <div><dt>Routing protocols</dt><dd><ul class="tags"><li>SPIN</li><li>Directed diffusion</li><li>LEACH</li><li>PEGASIS</li><li>TEEN</li><li>GAF</li><li>GEAR</li></ul><p>Also multipath, query-based and quality-of-service routing.</p></dd></div>
             <div><dt>Energy-saving protocols</dt><dd><ul class="tags"><li>S-MAC</li><li>T-MAC</li><li>DMAC</li><li>PAMAS</li><li>STEM</li></ul><p>With duty cycling, data reduction and mobile sinks.</p></dd></div>
             <div><dt>Data aggregation</dt><dd>Tree-based, cluster-based and secure aggregation.</dd></div>
+            <div><dt>Simulation lab</dt><dd>Discrete-event, packet-level simulation in NS2 with Tcl and OTcl: nodes and links, TCP and UDP agents, FTP and CBR traffic, and animation in NAM.</dd></div>
+            <div><dt>Wireless scenarios</dt><dd>IEEE 802.11 and sensor networks built with NSG2: node placement and movement, a sink node, <a href="#network-design">AODV routing</a> and the NS2 energy model.</dd></div>
+            <div><dt>Trace analysis</dt><dd>Reading wired and wireless trace files, and measuring packet delivery ratio, end-to-end delay and throughput with AWK scripts.</dd></div>
           </dl>
           <figure>
             <svg class="d" viewBox="0 0 360 306" role="img" aria-label="LEACH clustering: sensor nodes send data to their cluster head, and each cluster head sends it on to the base station.">
@@ -799,6 +802,49 @@
         </details>
         <!-- ===== COURSE END: NETWORK DESIGN AND PLANNING ===== -->
 
+        <!-- ===== COURSE START: COMPUTER NETWORKS ===== -->
+        <details class="course" id="computer-networks">
+          <summary><h3>Computer Networks</h3><span class="what">How data crosses a network layer by layer, from frames on a shared cable to reliable connections between programs.</span></summary>
+          <dl class="topics">
+            <div><dt>Layered models</dt><dd>Standards, encapsulation, the OSI and TCP/IP models, and the IEEE 802 family.</dd></div>
+            <div><dt>Data link layer</dt><dd>Framing and bit stuffing, flow and error control, and point-to-point links with HDLC and PPP.</dd></div>
+            <div><dt>Medium access</dt><dd>ALOHA and slotted ALOHA, CSMA, CSMA/CD and CSMA/CA, reservation, polling and token passing, and the hidden and exposed station problems.</dd></div>
+            <div><dt>Connecting devices</dt><dd>Network interface cards, repeaters, hubs, bridges, switches, routers and gateways, the spanning tree protocol, and VLANs with 802.1Q trunking.</dd></div>
+            <div><dt>IP addressing</dt><dd>Classful and classless addresses, subnet masks, fixed and variable length subnetting, address allocation, NAT, automatic configuration and IPv6 addresses.</dd></div>
+            <div><dt>Network layer</dt><dd>IPv4 and IPv6 datagrams, fragmentation, ICMP and ARP, and the move to IPv6 through dual stack, tunneling and header translation.</dd></div>
+            <div><dt>Transport layer</dt><dd>Ports and sockets, multiplexing, UDP, TCP segments, and opening and closing connections.</dd></div>
+            <div><dt>Reliable delivery</dt><dd>Stop-and-wait, go-back-N and selective repeat, the bandwidth-delay product, piggybacking and TCP flow control.</dd></div>
+            <div><dt>Exercises</dt><dd>Assigning addresses to small networks, finding configuration errors, and routing a Packet Tracer topology with RIP.</dd></div>
+            <div><dt>Connections</dt><dd>Routing continues in <a href="#network-protocols">network protocols</a>. Medium access returns in <a href="#sensor-networks">wireless sensor networks</a> and <a href="#iot-networking">IoT networking</a>.</dd></div>
+          </dl>
+          <figure>
+            <svg class="d" viewBox="0 0 360 296" role="img" aria-label="The 256 addresses of 10.20.30.0/24 divided by variable length subnetting: a /25 from .0 to .127, a /26 from .128 to .191, a /27 from .192 to .223, a /30 from .224 to .227, and 28 free addresses from .228 to .255.">
+              <defs><marker id="a-vlsm" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"/></marker></defs>
+              <text class="strong" x="180" y="14">Splitting 10.20.30.0/24 by size</text>
+              <text class="start" x="10" y="40">100 hosts: .0/25, 126 usable</text>
+              <rect class="grid" x="10" y="48" width="340" height="18"/>
+              <rect class="box hl" x="10" y="48" width="170" height="18"/>
+              <text class="start" x="10" y="90">50 hosts: .128/26, 62 usable</text>
+              <rect class="grid" x="10" y="98" width="340" height="18"/>
+              <rect class="box hl" x="180" y="98" width="85" height="18"/>
+              <text class="start" x="10" y="140">25 hosts: .192/27, 30 usable</text>
+              <rect class="grid" x="10" y="148" width="340" height="18"/>
+              <rect class="box hl" x="265" y="148" width="42.5" height="18"/>
+              <text class="start" x="10" y="190">One link: .224/30, 2 usable</text>
+              <rect class="grid" x="10" y="198" width="340" height="18"/>
+              <rect class="box hl" x="307.5" y="198" width="5.3125" height="18"/>
+              <text class="start" x="10" y="240">Free: .228 to .255, 28 addresses</text>
+              <rect class="grid" x="10" y="248" width="340" height="18"/>
+              <rect class="box soft dash" x="312.812" y="248" width="37.1875" height="18"/>
+              <text class="sub start" x="10" y="288">.0</text>
+              <text class="sub" x="180" y="288">.128</text>
+              <text class="sub end" x="350" y="288">.255</text>
+            </svg>
+            <figcaption>An invented example of variable length subnetting: the largest group is placed first, and each gets the smallest block that fits its hosts plus the network and broadcast addresses.</figcaption>
+          </figure>
+        </details>
+        <!-- ===== COURSE END: COMPUTER NETWORKS ===== -->
+
         <!-- ===== COURSE START: NETWORK PROTOCOLS ===== -->
         <details class="course" id="network-protocols">
           <summary><h3>Network Protocols</h3><span class="what">How routers find paths across the Internet, how delivery trees are built and repaired, and how multimedia is carried.</span></summary>
@@ -881,7 +927,6 @@
           </figure>
         </details>
         <!-- ===== COURSE END: NETWORK PROGRAMMING ===== -->
-        <p class="also">Other courses include Computer Networks.</p>
       </div>
     </section>
 
